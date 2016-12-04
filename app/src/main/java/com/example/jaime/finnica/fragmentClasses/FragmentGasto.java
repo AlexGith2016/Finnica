@@ -97,7 +97,7 @@ public class FragmentGasto extends ListFragment {
                 listaG = new ArrayList<>();
                 adapter = new GastoAdapter(getActivity(), listaG);
                 setListAdapter(adapter);
-                System.out.println("nada que ver");
+                System.out.println("nada que ver pana");
             }
         }catch (Exception e){
             e.getMessage();
