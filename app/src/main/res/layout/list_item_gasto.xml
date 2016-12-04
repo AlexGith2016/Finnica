@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="8dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="8dp">
+
+    <TextView
+        android:id="@+id/txtMontoGastoItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="56dp"
+        android:text="Monto del gasto"
+        android:textAppearance="?attr/textAppearanceListItem"
+        android:background="#f1baba" />
+
+    <TextView
+        android:id="@+id/txtFechaGastoItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fecha de gasto"
+        android:layout_below="@+id/txtDescGastoItem"
+        android:layout_alignStart="@+id/txtMontoGastoItem"
+        android:background="#b1f6d1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="descripcion"
+        android:id="@+id/txtDescGastoItem"
+        android:layout_alignStart="@+id/txtFechaGastoItem"
+        android:layout_below="@+id/txtMontoGastoItem"
+        android:layout_alignParentEnd="true"
+        android:background="#e8ee91" />
+
+
+</RelativeLayout>

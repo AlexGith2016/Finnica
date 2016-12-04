@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+
+    android:id="@+id/scrollView4"
+    android:layout_below="@+id/editText13"
+    android:layout_toEndOf="@+id/textView25" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <TabHost android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="750dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TabWidget android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@android:id/tabs" />
+
+            <FrameLayout android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@android:id/tabcontent" >
+
+
+
+                <LinearLayout android:id="@+id/tab2"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="98dp"
+                            android:layout_height="31dp"
+                            android:text="Acreditado: "
+                            android:id="@+id/textView22"
+                            android:textSize="@dimen/abc_action_bar_content_inset_material"
+                            android:textColor="@color/abc_primary_text_disable_only_material_light"
+                            android:layout_gravity="top"
+                            android:layout_marginStart="28dp"
+                            android:layout_marginTop="65dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true" />
+
+                        <EditText
+                            android:layout_width="198dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:ems="10"
+                            android:id="@+id/editText12"
+                            android:layout_alignBottom="@+id/textView22"
+                            android:layout_alignEnd="@+id/editText11" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Monto + Intereses:"
+                            android:id="@+id/textView2"
+                            android:textSize="18dp"
+                            android:textColor="@color/abc_primary_text_disable_only_material_light"
+                            android:layout_alignBottom="@+id/editText11"
+                            android:layout_alignParentStart="true" />
+
+                        <EditText
+                            android:layout_width="182dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/editText11"
+                            android:layout_marginBottom="119dp"
+                            android:layout_above="@+id/button5"
+                            android:layout_toEndOf="@+id/textView2" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pagado"
+                            android:id="@+id/button5"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="240dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_toEndOf="@+id/textView22" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+
+
+                <LinearLayout android:id="@+id/tab1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Acreditado"
+                            android:id="@+id/textView16"
+                            android:layout_alignTop="@+id/editText5"
+                            android:layout_alignParentStart="true" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Cuotas"
+                            android:id="@+id/textView17"
+                            android:layout_marginTop="36dp"
+                            android:layout_below="@+id/textView16"
+                            android:layout_alignParentStart="true" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Monto $C"
+                            android:id="@+id/textView18"
+                            android:layout_marginTop="33dp"
+                            android:layout_below="@+id/editText6"
+                            android:layout_alignParentStart="true" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Fecha"
+                            android:id="@+id/textView19"
+                            android:layout_below="@+id/editText7"
+                            android:layout_alignEnd="@+id/textView17"
+                            android:layout_marginTop="78dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Fecha Pago"
+                            android:id="@+id/textView20"
+                            android:layout_marginTop="61dp"
+                            android:layout_below="@+id/datePicker4"
+                            android:layout_alignParentStart="true" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Interes"
+                            android:id="@+id/textView21"
+                            android:layout_alignBottom="@+id/editText10"
+                            android:layout_alignEnd="@+id/textView18" />
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:ems="10"
+                            android:id="@+id/editText5"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="36dp" />
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/editText6"
+                            android:layout_below="@+id/editText5"
+                            android:layout_centerHorizontal="true" />
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/editText7"
+                            android:layout_alignBottom="@+id/textView18"
+                            android:layout_alignStart="@+id/editText6" />
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/editText10"
+                            android:layout_above="@+id/button2"
+                            android:layout_toEndOf="@+id/textView20"
+                            android:layout_marginBottom="108dp" />
+
+                        <Button
+                            style="?android:attr/buttonStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ingresar"
+                            android:id="@+id/button2"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true" />
+
+                        <DatePicker
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:id="@+id/datePicker4"
+                            android:layout_below="@+id/editText7"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="34dp" />
+
+                        <DatePicker
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:id="@+id/datePicker5"
+                            android:layout_alignTop="@+id/textView20"
+                            android:layout_alignStart="@+id/datePicker4" />
+
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+</LinearLayout>
+
+    </ScrollView>
