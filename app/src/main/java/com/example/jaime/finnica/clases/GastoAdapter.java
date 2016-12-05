@@ -34,9 +34,9 @@ public class GastoAdapter extends ArrayAdapter<Gasto> {
             convertView = inflater.inflate(R.layout.list_item_gasto, parent, false);
         }
 
-        monto = (TextView) convertView.findViewById(R.id.txtMontoGastoItem);
-        desc = (TextView) convertView.findViewById(R.id.txtDescGastoItem);
-        fecha = (TextView) convertView.findViewById(R.id.txtFechaGastoItem);
+        monto = (TextView) convertView.findViewById(R.id.txtAgentePrestamoItem);
+        desc = (TextView) convertView.findViewById(R.id.txtDescPrestamoItem);
+        fecha = (TextView) convertView.findViewById(R.id.txtCuotaPrestamoItem);
 
         //obtener el gasto actual
         Gasto gasto = getItem(position);

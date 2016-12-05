@@ -13,15 +13,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="56dp"
-        android:text="Monto del gasto"
+        android:text="Agente"
         android:textAppearance="?attr/textAppearanceListItem"
         android:background="#f1baba" />
 
     <TextView
-        android:id="@+id/txtCuotaPrestamoItem"
+        android:id="@+id/txtFechaPrestamoItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="fecha de gasto"
+        android:text="fecha de Prestamo"
         android:layout_below="@+id/txtDescPrestamoItem"
         android:layout_alignStart="@+id/txtAgentePrestamoItem"
         android:background="#b1f6d1" />
@@ -36,6 +36,24 @@
         android:layout_below="@+id/txtAgentePrestamoItem"
         android:layout_alignParentEnd="true"
         android:background="#e8ee91" />
+
+    <TextView
+        android:id="@+id/txtMontoPrestamoItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monto prestamo"
+        android:background="@android:color/holo_green_light"
+        android:layout_below="@+id/txtFechaPrestamoItem"
+        android:layout_alignStart="@+id/txtFechaPrestamoItem" />
+
+    <TextView
+        android:id="@+id/txtCuotaPrestamoItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cuota"
+        android:background="@android:color/holo_purple"
+        android:layout_below="@+id/txtMontoPrestamoItem"
+        android:layout_alignStart="@+id/txtMontoPrestamoItem" />
 
 
 </RelativeLayout>

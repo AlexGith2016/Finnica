@@ -3,10 +3,12 @@
 
 <ScrollView
 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/scrollView4"
     android:layout_below="@+id/editText13"
     android:layout_toEndOf="@+id/textView25" android:layout_width="fill_parent" android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:layout_collapseParallaxMultiplier="1.0">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -30,89 +32,36 @@
                 android:layout_height="match_parent"
                 android:id="@android:id/tabcontent" >
 
-
-
-                <LinearLayout android:id="@+id/tab2"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:layout_width="98dp"
-                            android:layout_height="31dp"
-                            android:text="Acreditado: "
-                            android:id="@+id/textView22"
-                            android:textSize="@dimen/abc_action_bar_content_inset_material"
-                            android:textColor="@color/abc_primary_text_disable_only_material_light"
-                            android:layout_gravity="top"
-                            android:layout_marginStart="28dp"
-                            android:layout_marginTop="65dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentStart="true" />
-
-                        <EditText
-                            android:layout_width="198dp"
-                            android:layout_height="wrap_content"
-                            android:inputType="textPersonName"
-                            android:ems="10"
-                            android:id="@+id/editText12"
-                            android:layout_alignBottom="@+id/textView22"
-                            android:layout_alignEnd="@+id/editText11" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Monto + Intereses:"
-                            android:id="@+id/textView2"
-                            android:textSize="18dp"
-                            android:textColor="@color/abc_primary_text_disable_only_material_light"
-                            android:layout_alignBottom="@+id/editText11"
-                            android:layout_alignParentStart="true" />
-
-                        <EditText
-                            android:layout_width="182dp"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/editText11"
-                            android:layout_marginBottom="119dp"
-                            android:layout_above="@+id/button5"
-                            android:layout_toEndOf="@+id/textView2" />
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Pagado"
-                            android:id="@+id/button5"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginBottom="240dp"
-                            android:layout_alignParentBottom="true"
-                            android:layout_toEndOf="@+id/textView22" />
-                    </RelativeLayout>
-
-
-                </LinearLayout>
-
-
-
-
+                <!-- primer linear-->
                 <LinearLayout android:id="@+id/tab1"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" >
 
+                    <TextView
+                        android:layout_width="261dp"
+                        android:layout_height="wrap_content"
+                        android:text="Prestamos"
+                        android:id="@+id/tvGastos"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:textSize="30dp"
+                        android:textColor="@color/accent_material_light"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true" />
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Acreditado"
+                            android:text="Agente Financiero"
                             android:id="@+id/textView16"
-                            android:layout_alignTop="@+id/editText5"
+                            android:layout_alignParentTop="true"
                             android:layout_alignParentStart="true" />
 
                         <TextView
@@ -125,6 +74,16 @@
                             android:layout_below="@+id/textView16"
                             android:layout_alignParentStart="true" />
 
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/txtCuotaPres"
+                            android:layout_below="@+id/txtAgentePres"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignStart="@+id/txtAgentePres" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -132,7 +91,7 @@
                             android:text="Monto $C"
                             android:id="@+id/textView18"
                             android:layout_marginTop="33dp"
-                            android:layout_below="@+id/editText6"
+                            android:layout_below="@+id/txtCuotaPres"
                             android:layout_alignParentStart="true" />
 
                         <TextView
@@ -141,95 +100,131 @@
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Fecha"
                             android:id="@+id/textView19"
-                            android:layout_below="@+id/editText7"
+                            android:layout_below="@+id/txtMontoPres"
                             android:layout_alignEnd="@+id/textView17"
                             android:layout_marginTop="78dp" />
 
+                        <DatePicker
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:id="@+id/dtFechaPres"
+                            android:layout_below="@+id/txtMontoPres"
+                            android:layout_marginTop="34dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignStart="@+id/txtMontoPres" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Fecha Pago"
-                            android:id="@+id/textView20"
-                            android:layout_marginTop="61dp"
-                            android:layout_below="@+id/datePicker4"
+                            android:text="Descripcion:"
+                            android:id="@+id/textView21"
+                            android:layout_centerVertical="true"
                             android:layout_alignParentStart="true" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Interes"
-                            android:id="@+id/textView21"
-                            android:layout_alignBottom="@+id/editText10"
-                            android:layout_alignEnd="@+id/textView18" />
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="93dp"
+                            android:id="@+id/scrollView"
+                            android:layout_below="@+id/dtFechaPres"
+                            android:layout_alignStart="@+id/dtFechaPres"
+                            android:layout_marginTop="10dp">
 
-                        <EditText
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:inputType="textPersonName"
-                            android:ems="10"
-                            android:id="@+id/editText5"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="36dp" />
-
-                        <EditText
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:id="@+id/editText6"
-                            android:layout_below="@+id/editText5"
-                            android:layout_centerHorizontal="true" />
-
-                        <EditText
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:id="@+id/editText7"
-                            android:layout_alignBottom="@+id/textView18"
-                            android:layout_alignStart="@+id/editText6" />
-
-                        <EditText
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:id="@+id/editText10"
-                            android:layout_above="@+id/button2"
-                            android:layout_toEndOf="@+id/textView20"
-                            android:layout_marginBottom="108dp" />
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textMultiLine"
+                                android:ems="10"
+                                android:id="@+id/txtDescPres"
+                                android:layout_alignTop="@+id/scrollView" />
+                        </ScrollView>
 
                         <Button
                             style="?android:attr/buttonStyleSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Ingresar"
-                            android:id="@+id/button2"
-                            android:layout_alignParentBottom="true"
+                            android:id="@+id/btnIngPres"
+                            android:layout_below="@+id/scrollView"
                             android:layout_centerHorizontal="true" />
 
-                        <DatePicker
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:id="@+id/datePicker4"
-                            android:layout_below="@+id/editText7"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="34dp" />
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:ems="10"
+                            android:id="@+id/txtAgentePres"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toEndOf="@+id/textView16" />
 
-                        <DatePicker
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:id="@+id/datePicker5"
-                            android:layout_alignTop="@+id/textView20"
-                            android:layout_alignStart="@+id/datePicker4" />
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/txtMontoPres"
+                            android:layout_below="@+id/txtCuotaPres"
+                            android:layout_alignStart="@+id/txtCuotaPres"
+                            android:layout_alignParentEnd="true" />
 
 
                     </RelativeLayout>
                 </LinearLayout>
 
+                <!-- segundo linear-->
+                <LinearLayout android:id="@+id/tab2"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView android:id="@+id/textView2"
+                            android:text="Consultar Prestamos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:textSize="25dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Consultar"
+                            android:id="@+id/btnConsultarPres"
+                            android:layout_marginStart="22dp"
+                            android:layout_below="@+id/textView2"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="24dp" />
+
+                        <Spinner
+                            android:layout_width="210dp"
+                            android:layout_height="40dp"
+                            android:id="@+id/spinnerPres"
+                            android:layout_alignTop="@+id/btnConsultarPres"
+                            android:layout_toEndOf="@+id/btnConsultarPres"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp" />
+
+                        <fragment
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:name="com.example.jaime.finnica.fragmentClasses.FragmentPrestamo"
+                            android:id="@+id/fragmentP"
+                            android:layout_below="@+id/btnConsultarPres"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="25dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentEnd="true"
+                            class="com.example.jaime.finnica.fragmentClasses.FragmentPrestamo"
+                            />
+                    </RelativeLayout>
+
+                </LinearLayout>
 
             </FrameLayout>
         </LinearLayout>

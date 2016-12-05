@@ -1,136 +1,337 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
+<ScrollView
 
-    <TabHost android:id="@+id/tabhost2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollView4"
+    android:layout_below="@+id/editText13"
+    android:layout_toEndOf="@+id/textView25" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:layout_collapseParallaxMultiplier="1.0">
 
-        <LinearLayout
-            android:orientation="vertical"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <TabHost android:id="@+id/tabhost2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-            <TabWidget android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@android:id/tabs" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
 
-            <FrameLayout android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@android:id/tabcontent" >
+                <TabWidget android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@android:id/tabs" />
 
+                <FrameLayout android:layout_width="match_parent"
+                    android:layout_height="458dp"
+                    android:id="@android:id/tabcontent" >
 
-                <!-- primer linear  android:name="com.example.jaime.finnica.fragmentClasses.FragmentGasto"-->
-                <LinearLayout android:id="@+id/tabgasto1"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-                    <RelativeLayout
+                    <!--primer linear  android:name="com.example.jaime.finnica.fragmentClasses.FragmentGasto"-->
+                    <LinearLayout android:id="@+id/tabgasto1"
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent" >
 
-                        <TextView
-                            android:layout_width="165dp"
-                            android:layout_height="wrap_content"
-                            android:text="Gastos"
-                            android:id="@+id/tvGastos"
-                            android:layout_gravity="center_horizontal"
-                            android:textAlignment="center"
-                            android:textSize="30dp"
-                            android:textColor="@color/accent_material_light"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentStart="true" />
-
-                        <TextView
+                        <RelativeLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Descripcion"
-                            android:id="@+id/textView12"
-                            android:layout_marginTop="30dp"
-                            android:layout_below="@+id/tvGastos"
-                            android:layout_alignParentStart="true"
-                            android:textColor="#e93896"
-                            android:textSize="18dp" />
+                            android:layout_height="wrap_content">
 
-                        <ScrollView
-                            android:layout_width="match_parent"
-                            android:layout_height="93dp"
-                            android:id="@+id/scrollView"
-                            android:layout_below="@+id/textView12"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginTop="29dp">
+                            <TextView
+                                android:layout_width="165dp"
+                                android:layout_height="wrap_content"
+                                android:text="Gastos"
+                                android:id="@+id/tvGastos"
+                                android:layout_gravity="center_horizontal"
+                                android:textAlignment="center"
+                                android:textSize="30dp"
+                                android:textColor="@color/accent_material_light"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentStart="true" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="Descripcion"
+                                android:id="@+id/textView12"
+                                android:layout_marginTop="30dp"
+                                android:layout_below="@+id/tvGastos"
+                                android:layout_alignParentStart="true"
+                                android:textColor="#e93896"
+                                android:textSize="18dp" />
+
+                            <ScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="93dp"
+                                android:id="@+id/scrollView"
+                                android:layout_below="@+id/textView12"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginTop="29dp">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textMultiLine"
+                                    android:ems="10"
+                                    android:id="@+id/txtDescGasto"
+                                    android:layout_alignTop="@+id/scrollView"
+                                    android:layout_toEndOf="@+id/textView12" />
+                            </ScrollView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="Deducción $C"
+                                android:id="@+id/textView13"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentStart="true"
+                                android:textColor="#e93896"
+                                android:textSize="18dp" />
 
                             <EditText
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:inputType="textMultiLine"
+                                android:inputType="numberDecimal"
                                 android:ems="10"
-                                android:id="@+id/txtDescGasto"
-                                android:layout_alignTop="@+id/scrollView"
-                                android:layout_toEndOf="@+id/textView12" />
-                        </ScrollView>
+                                android:id="@+id/txtDedGasto"
+                                android:layout_below="@+id/scrollView"
+                                android:layout_alignParentEnd="true"
+                                android:layout_toEndOf="@+id/textView13" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Deducción $C"
-                            android:id="@+id/textView13"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentStart="true"
-                            android:textColor="#e93896"
-                            android:textSize="18dp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="Fecha"
+                                android:id="@+id/textView14"
+                                android:textColor="#e93896"
+                                android:textSize="18dp"
+                                android:layout_above="@+id/fechaGasto"
+                                android:layout_alignParentStart="true" />
 
-                        <EditText
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal"
-                            android:ems="10"
-                            android:id="@+id/txtDedGasto"
-                            android:layout_below="@+id/scrollView"
-                            android:layout_alignParentEnd="true"
-                            android:layout_toEndOf="@+id/textView13" />
+                            <DatePicker
+                                android:layout_width="200dp"
+                                android:layout_height="100dp"
+                                android:id="@+id/fechaGasto"
+                                android:layout_above="@+id/btnIngresarGasto"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignStart="@+id/txtDedGasto"
+                                android:layout_marginTop="-20dp"
+                                android:layout_marginBottom="25dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Fecha"
-                            android:id="@+id/textView14"
-                            android:textColor="#e93896"
-                            android:textSize="18dp"
-                            android:layout_above="@+id/fechaGasto"
-                            android:layout_alignParentStart="true" />
+                            <Button
+                                style="?android:attr/buttonStyleSmall"
+                                android:layout_width="150dp"
+                                android:layout_height="50dp"
+                                android:text="Ingresar"
+                                android:id="@+id/btnIngresarGasto"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true" />
 
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
-                            android:layout_width="150dp"
-                            android:layout_height="50dp"
-                            android:text="Ingresar"
-                            android:id="@+id/btnIngresarGasto"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_alignParentBottom="true"
-                            android:layout_centerHorizontal="true" />
-
-                        <DatePicker
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:id="@+id/fechaGasto"
-                            android:layout_above="@+id/btnIngresarGasto"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignStart="@+id/txtDedGasto"
-                            android:layout_marginTop="-20dp"
-                            android:layout_marginBottom="25dp" />
-
-                    </RelativeLayout>
-                </LinearLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
 
 
-                <!-- segundo linear-->
+                    <!--Segundo tag linear-->
+                    <LinearLayout android:id="@+id/tabgasto2"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView android:id="@+id/textView2"
+                                android:text="Consultar gastos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:textSize="25dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true" />
+
+                            <Button
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Consultar"
+                                android:id="@+id/btnConsultarPres"
+                                android:layout_marginStart="22dp"
+                                android:layout_below="@+id/textView2"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginTop="24dp" />
+
+                            <fragment
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:name="com.example.jaime.finnica.fragmentClasses.FragmentGasto"
+                                android:id="@+id/fragmentG"
+                                android:layout_below="@+id/btnConsultarPres"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginTop="25dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentEnd="true"
+                                class="com.example.jaime.finnica.fragmentClasses.FragmentGasto"
+                                />
+
+                            <Spinner
+                                android:layout_width="210dp"
+                                android:layout_height="40dp"
+                                android:id="@+id/spinner"
+                                android:layout_marginLeft="20dp"
+                                android:layout_above="@+id/fragmentG"
+                                android:layout_toEndOf="@+id/btnConsultarPres"
+                                android:layout_marginStart="22dp" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
+    </LinearLayout>
+
+</ScrollView>
+                    <!--
+                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:orientation="vertical"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent">
+
+                        <TabHost android:id="@+id/tabhost2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" >
+
+                                <TabWidget android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@android:id/tabs" />
+
+                                <FrameLayout android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:id="@android:id/tabcontent" >
+
+
+                                     primer linear  android:name="com.example.jaime.finnica.fragmentClasses.FragmentGasto"
+                                    <LinearLayout android:id="@+id/tabgasto1"
+                                        android:orientation="vertical"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" >
+
+                                            <RelativeLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
+
+                                                <TextView
+                                                    android:layout_width="165dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="Gastos"
+                                                    android:id="@+id/tvGastos"
+                                                    android:layout_gravity="center_horizontal"
+                                                    android:textAlignment="center"
+                                                    android:textSize="30dp"
+                                                    android:textColor="@color/accent_material_light"
+                                                    android:layout_alignParentEnd="true"
+                                                    android:layout_alignParentTop="true"
+                                                    android:layout_alignParentStart="true" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                                    android:text="Descripcion"
+                                                    android:id="@+id/textView12"
+                                                    android:layout_marginTop="30dp"
+                                                    android:layout_below="@+id/tvGastos"
+                                                    android:layout_alignParentStart="true"
+                                                    android:textColor="#e93896"
+                                                    android:textSize="18dp" />
+
+                                                <ScrollView
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="93dp"
+                                                    android:id="@+id/scrollView"
+                                                    android:layout_below="@+id/textView12"
+                                                    android:layout_alignParentStart="true"
+                                                    android:layout_marginTop="29dp">
+
+                                                    <EditText
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:inputType="textMultiLine"
+                                                        android:ems="10"
+                                                        android:id="@+id/txtDescGasto"
+                                                        android:layout_alignTop="@+id/scrollView"
+                                                        android:layout_toEndOf="@+id/textView12" />
+                                                </ScrollView>
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                                    android:text="Deducción $C"
+                                                    android:id="@+id/textView13"
+                                                    android:layout_centerVertical="true"
+                                                    android:layout_alignParentStart="true"
+                                                    android:textColor="#e93896"
+                                                    android:textSize="18dp" />
+
+                                                <EditText
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:inputType="numberDecimal"
+                                                    android:ems="10"
+                                                    android:id="@+id/txtDedGasto"
+                                                    android:layout_below="@+id/scrollView"
+                                                    android:layout_alignParentEnd="true"
+                                                    android:layout_toEndOf="@+id/textView13" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                                    android:text="Fecha"
+                                                    android:id="@+id/textView14"
+                                                    android:textColor="#e93896"
+                                                    android:textSize="18dp"
+                                                    android:layout_above="@+id/fechaGasto"
+                                                    android:layout_alignParentStart="true" />
+
+                                                <DatePicker
+                                                    android:layout_width="200dp"
+                                                    android:layout_height="100dp"
+                                                    android:id="@+id/fechaGasto"
+                                                    android:layout_above="@+id/btnIngresarGasto"
+                                                    android:layout_alignParentEnd="true"
+                                                    android:layout_alignStart="@+id/txtDedGasto"
+                                                    android:layout_marginTop="-20dp"
+                                                    android:layout_marginBottom="25dp" />
+
+                                                <Button
+                                                    style="?android:attr/buttonStyleSmall"
+                                                    android:layout_width="150dp"
+                                                    android:layout_height="50dp"
+                                                    android:text="Ingresar"
+                                                    android:id="@+id/btnIngresarGasto"
+                                                    android:layout_gravity="center_horizontal"
+                                                    android:layout_alignParentBottom="true"
+                                                    android:layout_centerHorizontal="true" />
+
+                                            </RelativeLayout>
+                                    </LinearLayout>
+                    -->
+<!--
+                 segundo linear
 
                 <LinearLayout android:id="@+id/tabgasto2"
                     android:orientation="vertical"
@@ -153,7 +354,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Consultar"
-                            android:id="@+id/btnConsultar"
+                            android:id="@+id/btnConsultarPres"
                             android:layout_marginStart="22dp"
                             android:layout_below="@+id/textView2"
                             android:layout_alignParentStart="true"
@@ -163,8 +364,8 @@
                             android:layout_width="210dp"
                             android:layout_height="40dp"
                             android:id="@+id/spinner"
-                            android:layout_alignTop="@+id/btnConsultar"
-                            android:layout_toEndOf="@+id/btnConsultar"
+                            android:layout_alignTop="@+id/btnConsultarPres"
+                            android:layout_toEndOf="@+id/btnConsultarPres"
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="5dp" />
 
@@ -173,7 +374,7 @@
                             android:layout_height="wrap_content"
                             android:name="com.example.jaime.finnica.fragmentClasses.FragmentGasto"
                             android:id="@+id/fragmentG"
-                            android:layout_below="@+id/btnConsultar"
+                            android:layout_below="@+id/btnConsultarPres"
                             android:layout_alignParentStart="true"
                             android:layout_marginTop="25dp"
                             android:layout_alignParentBottom="true"
@@ -188,3 +389,4 @@
         </LinearLayout>
     </TabHost>
 </LinearLayout>
+-->

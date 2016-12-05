@@ -14,20 +14,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jaime.finnica.R;
 import com.example.jaime.finnica.clases.Gasto;
 import com.example.jaime.finnica.clases.GastoAdapter;
-import com.example.jaime.finnica.clases.Ingresos;
-import com.google.common.base.FinalizablePhantomReference;
 
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -163,6 +158,8 @@ public class FragmentGasto extends ListFragment {
         mMenuItemEdit.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                Gasto gasto = listaG.get(pos);
+                gasto.delete();
                 adapter.remove(listaG.get(pos));
 
                 adapter.notifyDataSetChanged();
@@ -182,20 +179,23 @@ public class FragmentGasto extends ListFragment {
     public void actualizar( Gasto gasto, final int index){
         final Dialog dialog = new Dialog(getContext());
         dialog.setContentView(R.layout.imput_gastos);
-        final EditText tv1 = (EditText) dialog.findViewById(R.id.txtActDescGasto);
-        final EditText tv2= (EditText)dialog.findViewById(R.id.txtActMontoGasto);
-        final EditText tv3 = (EditText) dialog.findViewById(R.id.txtActFechaGasto);
+        final EditText tv1 = (EditText) dialog.findViewById(R.id.txtActDescPrestamo);
+        final EditText tv2= (EditText)dialog.findViewById(R.id.txtActMontoPrestamo);
+        final EditText tv3 = (EditText) dialog.findViewById(R.id.txtActAgentePrestamo);
         tv1.setText(gasto.getDescripcion());
         tv2.setText(String.valueOf(gasto.getMonto()));
         tv3.setText(formato.format(gasto.getFechaGasto()));
-        Button button = (Button)dialog.findViewById(R.id.btnActGasto);
+        Button button = (Button)dialog.findViewById(R.id.btnActPrestamo);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Gasto g= null;
                 try {
-                    g = new Gasto(tv1.getText().toString(), Float.parseFloat(tv2.getText().toString()),
-                            formato.parse(tv3.getText().toString()));
+                    g = listaG.get(index);
+                    g.setDescripcion(tv1.getText().toString());
+                    g.setMonto(Float.parseFloat(tv2.getText().toString()));
+                    g.setFechaGasto(formato.parse(tv3.getText().toString()));
+                    g.save();
                     listaG.set(index, g);
                     adapter.notifyDataSetChanged();
                     dialog.dismiss();

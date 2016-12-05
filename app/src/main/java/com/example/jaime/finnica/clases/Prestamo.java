@@ -1,26 +1,35 @@
 package com.example.jaime.finnica.clases;
 
 import com.orm.SugarApp;
+import com.orm.SugarRecord;
 
 import java.util.Date;
 
 /**
  * Created by checho on 16/11/2016.
  */
-public class Prestamo extends SugarApp{
+public class Prestamo extends SugarRecord{
     private String agenteFinanciero;
     private float montoEntrada;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private Date fecha;
     private String descripcion;
-    private Pago pago;
+    private int nCuotas;
+    private int ultimoMes;
+    private int nCuotasCancel;
+    private int tnotificado;
 
-    public Prestamo(String agenteFinanciero, float montoEntrada, Date fechaInicio, Date fechaFin, String descripcion) {
+    public Prestamo() {
+    }
+
+    public Prestamo(String agenteFinanciero, float montoEntrada, Date fecha, String descripcion, int nCuotas) {
         this.agenteFinanciero = agenteFinanciero;
         this.montoEntrada = montoEntrada;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
+        this.fecha = fecha;
         this.descripcion = descripcion;
+        this.nCuotas = nCuotas;
+        ultimoMes = 0;
+        nCuotasCancel = 0;
+        tnotificado = 0;
     }
 
     public String getAgenteFinanciero() {
@@ -35,17 +44,11 @@ public class Prestamo extends SugarApp{
     public void setMontoEntrada(float montoEntrada) {
         this.montoEntrada = montoEntrada;
     }
-    public Date getFechaInicio() {
-        return fechaInicio;
+    public Date getFecha() {
+        return fecha;
     }
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
-    public Date getFechaFin() {
-        return fechaFin;
-    }
-    public void setFechaFin(Date fechaFin) {
-        this.fechaFin = fechaFin;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
     public String getDescripcion() {
         return descripcion;
@@ -53,10 +56,28 @@ public class Prestamo extends SugarApp{
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    public Pago getPago() {
-        return pago;
+    public int getnCuotas() {
+        return nCuotas;
     }
-    public void setPago(Pago pago) {
-        this.pago = pago;
+    public void setnCuotas(int nCuotas) {
+        this.nCuotas = nCuotas;
+    }
+    public int getUltimoMes() {
+        return ultimoMes;
+    }
+    public void setUltimoMes(int ultimoMes) {
+        this.ultimoMes = ultimoMes;
+    }
+    public int getnCuotasCancel() {
+        return nCuotasCancel;
+    }
+    public void setnCuotasCancel(int nCuotasCancel) {
+        this.nCuotasCancel = nCuotasCancel;
+    }
+    public int getTnotificado() {
+        return tnotificado;
+    }
+    public void setTnotificado(int tnotificado) {
+        this.tnotificado = tnotificado;
     }
 }
