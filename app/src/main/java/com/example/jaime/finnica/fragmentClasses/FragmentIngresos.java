@@ -1,12 +1,11 @@
 package com.example.jaime.finnica.fragmentClasses;
-
-
+import android.support.v4.app.Fragment;
 import android.app.Dialog;
+
+import android.support.v4.app.ListFragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -18,45 +17,40 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.jaime.finnica.R;
-import com.example.jaime.finnica.clases.Gasto;
-import com.example.jaime.finnica.clases.GastoAdapter;
-import com.example.jaime.finnica.clases.Ingresos;
-import com.google.common.base.FinalizablePhantomReference;
 
-import java.sql.Date;
+import com.example.jaime.finnica.R;
+
+import com.example.jaime.finnica.clases.Ingresos;
+import com.example.jaime.finnica.clases.IngresosAdapter;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by Jaime on 04/12/2016.
  */
-public class FragmentGasto extends ListFragment {
-    //ListView listViewGastos;
-    GastoAdapter adapter;
-    List<Gasto> listaG;
-    InterfaceGasto act;
-    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+public class FragmentIngresos extends ListFragment {
+    List<Ingresos> listaI;
+    IngresosAdapter adapter;
+    InterfaceIngreso act;
+    SimpleDateFormat formato= new SimpleDateFormat("dd/MM/yyyy");
     ListView listView;
     boolean selectedLong;
     int pos;
 
-    public FragmentGasto() {
-        // Required empty public constructor
+    public FragmentIngresos(){
+
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_fragment_gasto, container, false);
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_fragment_ingresos, container, false);
         try {
             listView= (ListView) root.findViewById(android.R.id.list);
             listView.setLongClickable(true);
@@ -77,44 +71,35 @@ public class FragmentGasto extends ListFragment {
             e.getMessage();
         }
 
-        //Toast.makeText(getActivity(), "Llenando el fragment", Toast.LENGTH_SHORT).show();
+
         return root;
+
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //Prueba de datos
-        try {
-            System.out.println("Tratar de crear tabla Gasto");
 
-            if(Gasto.isSugarEntity(Gasto.class) && Gasto.count(Gasto.class) > 0){
-                listaG = Gasto.listAll(Gasto.class);
-                adapter = new GastoAdapter(getActivity(), listaG);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        try {
+            System.out.println("Tratar de crear tabla Ingresos");
+
+            if(Ingresos.isSugarEntity(Ingresos.class) && Ingresos.count(Ingresos.class) > 0){
+                listaI = Ingresos.listAll(Ingresos.class);
+                adapter = new IngresosAdapter(getActivity(), listaI);
                 setListAdapter(adapter);
                 System.out.println("Listo y servido");
             }else {
-                listaG = new ArrayList<>();
-                adapter = new GastoAdapter(getActivity(), listaG);
+                listaI = new ArrayList<>();
+                adapter = new IngresosAdapter(getActivity(),listaI);
                 setListAdapter(adapter);
                 System.out.println("nada que ver pana");
             }
         }catch (Exception e){
             e.getMessage();
         }
-        /*try {
-            listaG = new ArrayList<>();
-            Gasto gasto1 = new Gasto("nuevo gasto 1", 1200, formato.parse("15/11/2016"));
-            Gasto gasto2 = new Gasto("nuevo gasto 2", 100, formato.parse("22/10/2016"));
-            listaG.add(gasto1);
-            listaG.add(gasto2);
 
-            //Agregar al adapter
-            adapter = new GastoAdapter(getActivity(), listaG);
-            setListAdapter(adapter);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }*/
+
 
     }
 
@@ -132,16 +117,17 @@ public class FragmentGasto extends ListFragment {
         //Toast.makeText(getActivity(), "Ha pulsado el item con monto " + String.valueOf(listaG.get(position).getMonto()),
         //Toast.LENGTH_SHORT).show();
         if(selectedLong == false){
-            actualizar(listaG.get(position), position);
+            actualizar(listaI.get(position), position);
         }else{
             selectedLong = false;
         }
     }
 
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        act = (InterfaceGasto)context;
+        act = (InterfaceIngreso)context;
         act.onFragmentInteractionListener();
         Toast.makeText(getActivity(), "Creando activity para comunicacion",
                 Toast.LENGTH_SHORT).show();
@@ -163,7 +149,7 @@ public class FragmentGasto extends ListFragment {
         mMenuItemEdit.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                adapter.remove(listaG.get(pos));
+                adapter.remove(listaI.get(pos));
 
                 adapter.notifyDataSetChanged();
                 Toast.makeText(getActivity(), "Eliminado", Toast.LENGTH_SHORT).show();
@@ -174,29 +160,59 @@ public class FragmentGasto extends ListFragment {
 
 
 
-    public void agregar(Gasto gasto){
-        listaG.add(gasto);
+
+
+
+    public void agregar(Ingresos ingreso){
+        listaI.add(ingreso);
         adapter.notifyDataSetChanged();
     }
 
-    public void actualizar( Gasto gasto, final int index){
+
+    public void actualizar( Ingresos ingreso, final int index){
         final Dialog dialog = new Dialog(getContext());
         dialog.setContentView(R.layout.imput_gastos);
-        final EditText tv1 = (EditText) dialog.findViewById(R.id.txtActDescGasto);
-        final EditText tv2= (EditText)dialog.findViewById(R.id.txtActMontoGasto);
-        final EditText tv3 = (EditText) dialog.findViewById(R.id.txtActFechaGasto);
-        tv1.setText(gasto.getDescripcion());
-        tv2.setText(String.valueOf(gasto.getMonto()));
-        tv3.setText(formato.format(gasto.getFechaGasto()));
-        Button button = (Button)dialog.findViewById(R.id.btnActGasto);
+
+        final EditText tv1 = (EditText) dialog.findViewById(R.id.txtActDescIngresos);
+        final EditText tv2= (EditText)dialog.findViewById(R.id.txtActMontoIngresos);
+        final EditText tv3 = (EditText) dialog.findViewById(R.id.txtActFechaIngresos);
+        final Spinner  spn  = (Spinner) dialog.findViewById(R.id.spinnerCategoria);
+        final TextView tv4=(TextView) dialog.findViewById(R.id.txtCategoria);
+//Spinner
+        List<String> spinnerArray = new ArrayList<String>();
+        spinnerArray.add("Pago préstamo");
+        spinnerArray.add("Regalía");
+        spinnerArray.add("Salario");
+        spinnerArray.add("Otro");
+
+        ArrayAdapter<String> adap = new ArrayAdapter<String> (getContext(), android.R.layout.simple_list_item_1,spinnerArray);
+
+        adap.setDropDownViewResource(android.R.layout.simple_list_item_1);
+
+        spn.setAdapter(adap);
+
+        //*****
+
+
+        tv1.setText(ingreso.getDescripcion());
+        tv2.setText(String.valueOf(ingreso.getMonto()));
+        tv3.setText(formato.format(ingreso.getFechaIngreso()));
+        tv4.setText(ingreso.getCategoria());
+
+        Button button = (Button)dialog.findViewById(R.id.btnActIngresos);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Gasto g= null;
+                Ingresos i= null;
                 try {
-                    g = new Gasto(tv1.getText().toString(), Float.parseFloat(tv2.getText().toString()),
-                            formato.parse(tv3.getText().toString()));
-                    listaG.set(index, g);
+
+                    i= new Ingresos();
+                    i.setCategoria(spn.getAdapter().toString());
+                    i.setDescripcion(tv1.getText().toString());
+                    i.setMonto(Float.parseFloat(tv2.getText().toString()));
+                    i.setFechaIngreso(formato.parse(tv3.getText().toString()));
+
+                    listaI.set(index, i);
                     adapter.notifyDataSetChanged();
                     dialog.dismiss();
                 } catch (ParseException e) {
@@ -209,7 +225,9 @@ public class FragmentGasto extends ListFragment {
 
 
 
-    public interface InterfaceGasto {
+
+    public interface InterfaceIngreso{
         public void onFragmentInteractionListener();
     }
+
 }

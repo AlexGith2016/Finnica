@@ -2,6 +2,7 @@ package com.example.jaime.finnica;
 
 import android.app.Fragment;
 import android.content.res.Resources;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,7 +16,10 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.example.jaime.finnica.clases.Ingresos;
+
+import com.example.jaime.finnica.fragmentClasses.FragmentIngresos;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,18 +27,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class IngresosActivity extends AppCompatActivity {
+public class IngresosActivity extends FragmentActivity implements  FragmentIngresos.InterfaceIngreso {
 
     private Spinner categoria;
     private EditText descripcion;
     private DatePicker fecha;
     private EditText monto;
     private Button btnGuardar;
+    DatePicker fechaIngreso;
+    FragmentIngresos fgm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingresos);
-
 
 
         //Spinner
@@ -44,43 +50,16 @@ public class IngresosActivity extends AppCompatActivity {
         spinnerArray.add("Salario");
         spinnerArray.add("Otro");
 
-        descripcion = (EditText)findViewById(R.id.descIngreso);
+        descripcion = (EditText) findViewById(R.id.descIngreso);
         categoria = (Spinner) findViewById(R.id.categoriaIngreso);
-        fecha = (DatePicker)findViewById(R.id.fechaIngreso);
-        monto = (EditText)findViewById(R.id.montoIngreso);
-        btnGuardar = (Button)findViewById(R.id.btnGuardarIngreso);
-        btnGuardar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                List<Ingresos> listaIngresos= new ArrayList<>();
-                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-                String strFecha = String.valueOf(fecha.getDayOfMonth()) + "/" + String.valueOf(fecha.getMonth()+1) + "/" + String.valueOf(fecha.getYear());
-                try {
-                    listaIngresos.add(new Ingresos(descripcion.getText().toString(),Float.parseFloat(monto.getText().toString()),
-                            formato.parse(strFecha), categoria.getSelectedItem().toString()));
-                    Date f = formato.parse(strFecha);
-                    System.out.println("Date: " + f.toString() + ", fecha: " + f.getDay()+"/"+f.getMonth()+"/"+f.getYear()+"----/ "+f.getTime());
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                Toast.makeText(getApplicationContext(), "Monto: " + listaIngresos.get(listaIngresos.size()-1).getMonto() + ", Fecha: " +
-                        listaIngresos.get(listaIngresos.size()-1).getFechaIngreso().toString() +
-                        ", Cat: " + listaIngresos.get(listaIngresos.size()-1).getCategoria(), Toast.LENGTH_LONG).show();
+        fecha = (DatePicker) findViewById(R.id.fechaIngreso);
+        monto = (EditText) findViewById(R.id.montoIngreso);
+        btnGuardar = (Button) findViewById(R.id.btnGuardarIngreso);
 
 
 
-                System.out.println("Monto: " + listaIngresos.get(listaIngresos.size()-1).getMonto() + ", Fecha: " +
-                        listaIngresos.get(listaIngresos.size()-1).getFechaIngreso().toString() +
-                        ", Cat: " + listaIngresos.get(listaIngresos.size()-1).getCategoria());
-
-                listaIngresos.get(listaIngresos.size()-1).save();
-
-               /* Ingresos i = Ingresos.findById(Ingresos.class, 1);
-                System.out.println("des ing: " + i.getDescripcion());*/
 
 
-            }
-        });
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1, spinnerArray);
@@ -107,5 +86,41 @@ public class IngresosActivity extends AppCompatActivity {
         tabs.setCurrentTab(0);
 
 
+
     }
+
+    @Override
+    public void onFragmentInteractionListener() {
+        fgm = (FragmentIngresos) getSupportFragmentManager().findFragmentById(R.id.fragmentI);
+    }
+
+    public void onClick(View v) {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        String strFecha = String.valueOf(fechaIngreso.getDayOfMonth()) + "/" + String.valueOf(fechaIngreso.getMonth()+1) + "/" + String.valueOf(fechaIngreso.getYear());
+
+        try {
+            //guardar en lista
+            Ingresos ingreso =new Ingresos();
+            ingreso.setCategoria(categoria.getAdapter().toString());
+            ingreso.setDescripcion(descripcion.getText().toString());
+            ingreso.setFechaIngreso(formato.parse(strFecha));
+            ingreso.setMonto(Float.parseFloat(monto.getText().toString()));
+            ingreso.save();
+
+
+
+
+            fgm.agregar(ingreso);
+            Toast.makeText(this, "AGREGADO",Toast.LENGTH_SHORT).show();
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+
+
 }
