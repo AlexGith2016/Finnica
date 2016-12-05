@@ -28,10 +28,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by checho on 04/12/2016.
- */
-
 public class FragmentPrestamo extends ListFragment {
     PrestamoAdapter adapterP;
     List<Prestamo> listaP;
@@ -63,6 +59,7 @@ public class FragmentPrestamo extends ListFragment {
             }
         }catch (Exception e){
             e.getMessage();
+
         }
     }
 
@@ -100,7 +97,7 @@ public class FragmentPrestamo extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        if(selectedLongP == false){
+        if(!selectedLongP){
             actualizar(listaP.get(position), position);
         }else{
             selectedLongP = false;
@@ -127,7 +124,7 @@ public class FragmentPrestamo extends ListFragment {
         inflater.inflate(R.menu.menu_scrolling, menu);
         menu.getItem(0).setTitle("Eliminar");
 
-        mMenuItemEdit = (MenuItem) menu.findItem(R.id.action_settings);
+        mMenuItemEdit = menu.findItem(R.id.action_settings);
         mMenuItemEdit.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -164,7 +161,7 @@ public class FragmentPrestamo extends ListFragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Prestamo p= null;
+                Prestamo p;
                 try {
                     p = listaP.get(index);
                     p.setAgenteFinanciero(tv4.getText().toString());
@@ -186,6 +183,6 @@ public class FragmentPrestamo extends ListFragment {
     }
 
     public interface InterfacePrestamo {
-        public void onFragmentInteractionListener();
+        void onFragmentInteractionListener();
     }
 }
