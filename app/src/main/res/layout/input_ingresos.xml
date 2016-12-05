@@ -25,21 +25,20 @@
             android:text="Descripcion:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:id="@+id/textView32"
             android:textSize="19sp"
+            android:textAlignment="center"
             android:layout_alignBottom="@+id/txtActDescIngresos"
-            android:layout_alignParentTop="true"
-            android:textAlignment="center" />
+            android:layout_alignParentStart="true" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:layout_alignParentTop="true"
             android:id="@+id/txtActDescIngresos"
-            android:layout_alignParentEnd="true"
+            android:layout_marginTop="120dp"
+            android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/textView32" />
 
         <TextView
@@ -49,19 +48,16 @@
             android:id="@+id/textView31"
             android:textSize="19sp"
             android:textAlignment="viewStart"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView32"
-            android:layout_toStartOf="@+id/txtActMontoIngresos"
-            android:layout_alignBottom="@+id/txtActMontoIngresos" />
+            android:layout_alignBottom="@+id/txtActMontoIngresos"
+            android:layout_alignParentStart="true" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:ems="10"
-            android:layout_below="@+id/txtActDescIngresos"
             android:id="@+id/txtActMontoIngresos"
-            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/textView32"
             android:layout_toEndOf="@+id/textView32" />
 
         <TextView
@@ -71,10 +67,8 @@
             android:id="@+id/textView33"
             android:textSize="19sp"
             android:textAlignment="viewStart"
-            android:layout_below="@+id/textView31"
-            android:layout_alignParentStart="true"
-            android:layout_toStartOf="@+id/txtActMontoIngresos"
-            android:layout_alignBottom="@+id/txtActFechaIngresos" />
+            android:layout_alignBottom="@+id/txtActFechaIngresos"
+            android:layout_alignEnd="@+id/textView31" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -82,18 +76,46 @@
             android:inputType="date"
             android:ems="10"
             android:id="@+id/txtActFechaIngresos"
-            android:layout_below="@+id/txtActMontoIngresos"
-            android:layout_alignParentEnd="true"
-            android:layout_toEndOf="@+id/textView31" />
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/btnActIngresos"
+            android:layout_alignStart="@+id/txtActMontoIngresos" />
 
         <Button
             android:text="actualizar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView33"
-            android:layout_alignParentStart="true"
             android:id="@+id/btnActIngresos"
-            android:layout_alignParentEnd="true" />
+            android:layout_marginTop="52dp"
+            android:layout_below="@+id/textView33"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Categoria:"
+            android:id="@+id/textView11"
+            android:layout_above="@+id/spinnerCategoria"
+            android:layout_alignStart="@+id/textView33" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerCategoria"
+            android:layout_above="@+id/textView32"
+            android:layout_alignEnd="@+id/btnActIngresos"
+            android:layout_marginBottom="27dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/txtCategoria"
+            android:layout_marginStart="26dp"
+            android:layout_above="@+id/spinnerCategoria"
+            android:layout_alignStart="@+id/btnActIngresos" />
+
     </RelativeLayout>
 
 </LinearLayout>

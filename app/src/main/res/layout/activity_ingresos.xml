@@ -151,6 +151,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Ingresar"
+                            android:onClick="onClick"
                             android:id="@+id/btnGuardarIngreso"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true" />
@@ -207,10 +208,11 @@
                         <fragment
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:name="com.example.jaime.finnica.fragmentClasses.ListFragmentInforme"
-                            android:id="@+id/listfragment"
+                            android:name="com.example.jaime.finnica.fragmentClasses.FragmentIngresos"
+                            android:id="@+id/fragmentI"
                             android:layout_below="@+id/linearLayout"
-                            android:layout_alignParentStart="true">
+                            android:layout_alignParentStart="true"
+                            class="com.example.jaime.finnica.fragmentClasses.FragmentIngresos">
 
 
                         </fragment>

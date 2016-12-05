@@ -21,6 +21,10 @@ public class Ingresos extends SugarRecord {
         this.categoria = categoria;
     }
 
+    public Ingresos(){
+
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
