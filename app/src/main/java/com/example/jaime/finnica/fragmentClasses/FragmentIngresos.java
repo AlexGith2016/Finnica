@@ -149,6 +149,9 @@ public class FragmentIngresos extends ListFragment {
         mMenuItemEdit.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                Ingresos ingreso = listaI.get(pos);
+                ingreso.delete();
+
                 adapter.remove(listaI.get(pos));
 
                 adapter.notifyDataSetChanged();
@@ -171,12 +174,12 @@ public class FragmentIngresos extends ListFragment {
 
     public void actualizar( Ingresos ingreso, final int index){
         final Dialog dialog = new Dialog(getContext());
-        dialog.setContentView(R.layout.imput_gastos);
+        dialog.setContentView(R.layout.input_ingresos);
 
         final EditText tv1 = (EditText) dialog.findViewById(R.id.txtActDescIngresos);
         final EditText tv2= (EditText)dialog.findViewById(R.id.txtActMontoIngresos);
         final EditText tv3 = (EditText) dialog.findViewById(R.id.txtActFechaIngresos);
-        final Spinner  spn  = (Spinner) dialog.findViewById(R.id.spinnerCategoria);
+        final Spinner spn  = (Spinner) dialog.findViewById(R.id.spinnerCategoria);
         final TextView tv4=(TextView) dialog.findViewById(R.id.txtCategoria);
 //Spinner
         List<String> spinnerArray = new ArrayList<String>();
@@ -185,7 +188,7 @@ public class FragmentIngresos extends ListFragment {
         spinnerArray.add("Salario");
         spinnerArray.add("Otro");
 
-        ArrayAdapter<String> adap = new ArrayAdapter<String> (getContext(), android.R.layout.simple_list_item_1,spinnerArray);
+        ArrayAdapter<String> adap = new ArrayAdapter<String> (getContext(), android.R.layout.simple_list_item_1, spinnerArray);
 
         adap.setDropDownViewResource(android.R.layout.simple_list_item_1);
 
@@ -193,11 +196,11 @@ public class FragmentIngresos extends ListFragment {
 
         //*****
 
-
         tv1.setText(ingreso.getDescripcion());
         tv2.setText(String.valueOf(ingreso.getMonto()));
         tv3.setText(formato.format(ingreso.getFechaIngreso()));
-        tv4.setText(ingreso.getCategoria());
+        String cat = ingreso.getCategoria();
+        tv4.setText(cat);
 
         Button button = (Button)dialog.findViewById(R.id.btnActIngresos);
         button.setOnClickListener(new View.OnClickListener() {
@@ -206,11 +209,12 @@ public class FragmentIngresos extends ListFragment {
                 Ingresos i= null;
                 try {
 
-                    i= new Ingresos();
-                    i.setCategoria(spn.getAdapter().toString());
+                    i= listaI.get(index);
+                    i.setCategoria(spn.getSelectedItem().toString());
                     i.setDescripcion(tv1.getText().toString());
                     i.setMonto(Float.parseFloat(tv2.getText().toString()));
                     i.setFechaIngreso(formato.parse(tv3.getText().toString()));
+                    i.save();
 
                     listaI.set(index, i);
                     adapter.notifyDataSetChanged();

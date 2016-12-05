@@ -27,8 +27,6 @@ public class IngresosAdapter extends ArrayAdapter<Ingresos> {
     }
 
 
-
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -40,21 +38,19 @@ public class IngresosAdapter extends ArrayAdapter<Ingresos> {
 
         Categoria =(TextView)convertView.findViewById(R.id.txtCategoriaIngresosItem);
         Descripcion =(TextView)convertView.findViewById(R.id.txtDescripcionIngresosItem);
-        Fecha = (TextView) convertView.findViewById(R.id.txtFechaGastoItem);
+        Fecha = (TextView) convertView.findViewById(R.id.txtFechaIngresosItem);
         monto =(TextView)convertView.findViewById(R.id.txtMontoIngresosItem);
 
         //obtener el gasto actual
         Ingresos ingreso = getItem(position);
 
         //poner datos en los componentes
+        Categoria.setText(ingreso.getCategoria());
         monto.setText(String.valueOf(ingreso.getMonto()));
         Descripcion.setText(ingreso.getDescripcion());
         Fecha.setText(ingreso.getFechaIngreso().getDay()+"/"+ingreso.getFechaIngreso().getMonth()+"/"+(ingreso.getFechaIngreso().getYear()+1900));
 
         return convertView;
     }
-
-
-
 
 }

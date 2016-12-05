@@ -34,7 +34,6 @@ public class IngresosActivity extends FragmentActivity implements  FragmentIngre
     private DatePicker fecha;
     private EditText monto;
     private Button btnGuardar;
-    DatePicker fechaIngreso;
     FragmentIngresos fgm;
 
     @Override
@@ -96,12 +95,12 @@ public class IngresosActivity extends FragmentActivity implements  FragmentIngre
 
     public void onClick(View v) {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        String strFecha = String.valueOf(fechaIngreso.getDayOfMonth()) + "/" + String.valueOf(fechaIngreso.getMonth()+1) + "/" + String.valueOf(fechaIngreso.getYear());
+        String strFecha = String.valueOf(fecha.getDayOfMonth()) + "/" + String.valueOf(fecha.getMonth()+1) + "/" + String.valueOf(fecha.getYear());
 
         try {
             //guardar en lista
             Ingresos ingreso =new Ingresos();
-            ingreso.setCategoria(categoria.getAdapter().toString());
+            ingreso.setCategoria(categoria.getSelectedItem().toString());
             ingreso.setDescripcion(descripcion.getText().toString());
             ingreso.setFechaIngreso(formato.parse(strFecha));
             ingreso.setMonto(Float.parseFloat(monto.getText().toString()));
