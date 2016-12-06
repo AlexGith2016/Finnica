@@ -144,7 +144,7 @@
 
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="456dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -157,16 +157,6 @@
                                 android:layout_alignParentStart="true"
                                 android:layout_marginStart="30dp"
                                 android:textSize="25dp" />
-
-                            <Button
-                                style="?android:attr/buttonStyleSmall"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Deducir"
-                                android:id="@+id/button4"
-                                android:layout_marginBottom="41dp"
-                                android:layout_alignParentBottom="true"
-                                android:layout_centerHorizontal="true" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -185,14 +175,23 @@
                                 android:layout_alignBottom="@+id/textView20"
                                 android:layout_alignEnd="@+id/button4" />
 
-                            <fragment
+                            <Button
+                                style="?android:attr/buttonStyleSmall"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:text="Buscar"
+                                android:id="@+id/button4"
+                                android:layout_below="@+id/textView20"
+                                android:layout_alignParentStart="true" />
+
+                            <fragment
+                                android:layout_width="match_parent"
                                 android:name="com.example.jaime.finnica.fragmentClasses.FragmentPago"
                                 android:id="@+id/fragment"
-                                android:layout_marginTop="33dp"
+                                android:layout_marginTop="61dp"
                                 android:layout_below="@+id/textView20"
-                                android:layout_alignStart="@+id/button4" />
+                                android:layout_alignParentStart="true"
+                                android:layout_height="match_parent" />
 
                         </RelativeLayout>
                     </LinearLayout>
