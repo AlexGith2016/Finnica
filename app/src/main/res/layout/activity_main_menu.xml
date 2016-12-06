@@ -110,4 +110,13 @@
         android:layout_below="@+id/button_deudas"
         android:gravity="center"
         android:layout_alignStart="@+id/textView2" />
+
+    <Button
+        android:layout_width="@android:dimen/app_icon_size"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/ajuste"
+        android:onClick="startConfiguracion"
+        android:id="@+id/button_ajuste" />
 </RelativeLayout>

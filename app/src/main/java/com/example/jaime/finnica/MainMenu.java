@@ -41,4 +41,9 @@ public class MainMenu extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public void startConfiguracion(View view){
+        Intent intent = new Intent(this,ConfiguracionActivity.class);
+         startActivity(intent);
+    }
 }

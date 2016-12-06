@@ -13,7 +13,7 @@
         <meta-data android:name="DATABASE"
             android:value="sugar_example.db" />
         <meta-data android:name="VERSION"
-            android:value="3" />
+            android:value="4" />
         <meta-data android:name="QUERY_LOG"
             android:value="true" />
         <meta-data android:name="DOMAIN_PACKAGE_NAME"
@@ -28,6 +28,7 @@
         </activity>
         <activity android:name=".MainMenu" />
         <activity android:name=".IngresosActivity" />
+        <activity android:name=".ConfiguracionActivity" />
         <activity android:name=".PrestamosActivity" />
         <activity android:name=".DeudasActivity" />
         <activity android:name=".GastosActivity" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
