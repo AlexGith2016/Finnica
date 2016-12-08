@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.jaime.finnica.R;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -19,6 +20,7 @@ public class GastoAdapter extends ArrayAdapter<Gasto> {
     TextView monto;
     TextView desc;
     TextView fecha;
+    private SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
     public GastoAdapter(Context context, List<Gasto> objects) {
         super(context, 0, objects);
@@ -44,7 +46,7 @@ public class GastoAdapter extends ArrayAdapter<Gasto> {
         //poner datos en los componentes
         monto.setText(String.valueOf(gasto.getMonto()));
         desc.setText(gasto.getDescripcion());
-        fecha.setText(gasto.getFechaGasto().getDay()+"/"+gasto.getFechaGasto().getMonth()+"/"+(gasto.getFechaGasto().getYear()+1900));
+        fecha.setText(formato.format(gasto.getFechaGasto()));
 
         return convertView;
     }

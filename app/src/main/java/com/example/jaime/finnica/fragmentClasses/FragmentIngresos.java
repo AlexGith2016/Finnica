@@ -227,9 +227,6 @@ public class FragmentIngresos extends ListFragment {
         dialog.show();
     }
 
-
-
-
     public interface InterfaceIngreso{
         public void onFragmentInteractionListener();
     }

@@ -13,7 +13,7 @@
         android:textSize="24sp"
         android:textAlignment="center"
         android:fontFamily="monospace"
-        android:textColor="@color/common_signin_btn_default_background"
+        android:textColor="@color/colorPrimaryDark"
         android:textStyle="normal|bold" />
 
     <RelativeLayout

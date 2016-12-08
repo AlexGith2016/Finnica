@@ -14,23 +14,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jaime.finnica.R;
 import com.example.jaime.finnica.clases.Gasto;
 import com.example.jaime.finnica.clases.GastoAdapter;
-import com.example.jaime.finnica.clases.Ingresos;
-import com.google.common.base.FinalizablePhantomReference;
 
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -77,7 +73,6 @@ public class FragmentGasto extends ListFragment {
             e.getMessage();
         }
 
-        //Toast.makeText(getActivity(), "Llenando el fragment", Toast.LENGTH_SHORT).show();
         return root;
     }
 
@@ -85,37 +80,7 @@ public class FragmentGasto extends ListFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Prueba de datos
-        try {
-            System.out.println("Tratar de crear tabla Gasto");
-
-            if(Gasto.isSugarEntity(Gasto.class) && Gasto.count(Gasto.class) > 0){
-                listaG = Gasto.listAll(Gasto.class);
-                adapter = new GastoAdapter(getActivity(), listaG);
-                setListAdapter(adapter);
-                System.out.println("Listo y servido");
-            }else {
-                listaG = new ArrayList<>();
-                adapter = new GastoAdapter(getActivity(), listaG);
-                setListAdapter(adapter);
-                System.out.println("nada que ver pana");
-            }
-        }catch (Exception e){
-            e.getMessage();
-        }
-        /*try {
-            listaG = new ArrayList<>();
-            Gasto gasto1 = new Gasto("nuevo gasto 1", 1200, formato.parse("15/11/2016"));
-            Gasto gasto2 = new Gasto("nuevo gasto 2", 100, formato.parse("22/10/2016"));
-            listaG.add(gasto1);
-            listaG.add(gasto2);
-
-            //Agregar al adapter
-            adapter = new GastoAdapter(getActivity(), listaG);
-            setListAdapter(adapter);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }*/
-
+        llenarLista();
     }
 
     @Override
@@ -163,6 +128,8 @@ public class FragmentGasto extends ListFragment {
         mMenuItemEdit.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                Gasto gasto1 = listaG.get(pos);
+                gasto1.delete();
                 adapter.remove(listaG.get(pos));
 
                 adapter.notifyDataSetChanged();
@@ -172,7 +139,41 @@ public class FragmentGasto extends ListFragment {
         });
     }
 
+    public void buscar(Date fechaConsulta){
+        List<Gasto> listaConsulta = new ArrayList<>();
+        for (Gasto gasto : listaG) {
+            if(fechaConsulta.getMonth() == gasto.getFechaGasto().getMonth()){
+                listaConsulta.add(gasto);
+            }
+        }
+        if(listaConsulta.size()<= 0){
+            Toast.makeText(getActivity(), "No hay datos para mostrar", Toast.LENGTH_LONG).show();
+        }else {
+            listaG = listaConsulta;
+            adapter = new GastoAdapter(getActivity(), listaG);
+            setListAdapter(adapter);
+        }
+    }
 
+    public void llenarLista(){
+        try {
+            System.out.println("Tratar de crear tabla Gasto");
+
+            if(Gasto.isSugarEntity(Gasto.class) && Gasto.count(Gasto.class) > 0){
+                listaG = Gasto.listAll(Gasto.class);
+                adapter = new GastoAdapter(getActivity(), listaG);
+                setListAdapter(adapter);
+                System.out.println("Listo y servido");
+            }else {
+                listaG = new ArrayList<>();
+                adapter = new GastoAdapter(getActivity(), listaG);
+                setListAdapter(adapter);
+                System.out.println("nada que ver pana");
+            }
+        }catch (Exception e){
+            e.getMessage();
+        }
+    }
 
     public void agregar(Gasto gasto){
         listaG.add(gasto);
@@ -192,10 +193,14 @@ public class FragmentGasto extends ListFragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Gasto g= null;
+                Gasto g;
                 try {
-                    g = new Gasto(tv1.getText().toString(), Float.parseFloat(tv2.getText().toString()),
-                            formato.parse(tv3.getText().toString()));
+                    g = listaG.get(index);
+                    g.setDescripcion(tv1.getText().toString());
+                    g.setMonto(Float.parseFloat(tv2.getText().toString()));
+                    g.setFechaGasto(formato.parse(tv3.getText().toString()));
+                    g.save();
+
                     listaG.set(index, g);
                     adapter.notifyDataSetChanged();
                     dialog.dismiss();
@@ -206,8 +211,6 @@ public class FragmentGasto extends ListFragment {
         });
         dialog.show();
     }
-
-
 
     public interface InterfaceGasto {
         public void onFragmentInteractionListener();
