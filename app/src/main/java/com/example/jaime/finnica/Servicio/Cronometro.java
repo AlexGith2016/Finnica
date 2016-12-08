@@ -89,7 +89,7 @@ public class Cronometro extends Service {
                 cronometro += 3;
                 agregar();
                 compararFecha();
-                Notificar(cronometro+" ");
+              //  Notificar(cronometro+" ");
 
 
                 if(UPDATE_LISTENER != null) {
@@ -191,14 +191,14 @@ public class Cronometro extends Service {
 
 
         int dia = fechaA.get(Calendar.DAY_OF_MONTH);
-        Notificar("El puto día es "+dia);
+      //  Notificar("El puto día es "+dia);
         int dA=dia;
         int mA=fechaA.get(Calendar.MONTH)+1;
         int aA=fechaA.get(Calendar.YEAR);
 
 
 
-        Notificar("antes del for: "+deudas.size());
+       // Notificar("antes del for: "+deudas.size());
         for(int i = 0; i<deudas.size();i++)
         {
 
