@@ -41,7 +41,8 @@ public class Cronometro extends Service {
     int i = 0;
     private Handler handler;
     Prestamo deuda[] =new Prestamo[2];
-
+    String agenteDeuda;
+    String infoDeuda;
 
 
     /**
@@ -137,9 +138,9 @@ public class Cronometro extends Service {
     public  void notificar(){
         NotificationCompat.Builder mBuilder =
                 (NotificationCompat.Builder) new NotificationCompat.Builder(this)
-                        .setSmallIcon(android.R.drawable.ic_lock_lock)
-                        .setContentTitle("Hoy te toca chele")
-                        .setContentText("lleggooooooo la deuda!");
+                        .setSmallIcon(android.R.drawable.ic_dialog_info)
+                        .setContentTitle("Notificación Deuda")
+                        .setContentText("Cancelar la cuota: "+this.agenteDeuda+"\n "+this.infoDeuda);
 // Creates an explicit intent for an Activity in your app
         Intent resultIntent = new Intent(UPDATE_LISTENER, DeudasActivity.class);
 
@@ -248,7 +249,10 @@ public class Cronometro extends Service {
 
                     if((f==1 || f==2) && e.getNotificado()==0){
                         Alerta("antes de notificar");
+                        this.agenteDeuda=e.getAgenteFinanciero().toString();
+                        this.infoDeuda="cuota: "+e.getNcuoCan()+" de: "+e.getnCuotas();
                         notificar();
+
                         e.setNotificado(1);
                         e.setUltimoMes(mA);//se guarda el ultimo mes que se notifica
                         e.setNcuoCan(e.getNcuoCan()+1);

@@ -25,11 +25,12 @@ public class Prestamo extends SugarRecord{
         this.montoEntrada = montoEntrada;
         this.fecha = fecha;
         this.descripcion = descripcion;
-        this.ncuocan = nCuotas;
+        this.ncuotas = nCuotas;
+
         ultimoMes = 0;
         ncuocan = 0;
         notificado = 0;
-    }
+    };
 
     public String getAgenteFinanciero() {
         return agenteFinanciero;
@@ -56,10 +57,10 @@ public class Prestamo extends SugarRecord{
         this.descripcion = descripcion;
     }
     public int getnCuotas() {
-        return ncuocan;
+        return ncuotas;
     }
     public void setnCuotas(int nCuotas) {
-        this.ncuocan = nCuotas;
+        this.ncuotas = nCuotas;
     }
     public int getUltimoMes() {
         return ultimoMes;
