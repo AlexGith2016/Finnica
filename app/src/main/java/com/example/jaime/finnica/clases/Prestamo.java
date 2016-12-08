@@ -13,11 +13,10 @@ public class Prestamo extends SugarRecord{
     private float montoEntrada;
     private Date fecha;
     private String descripcion;
-    private int nCuotas;
+    private int ncuotas;
+    private int notificado;
+    private int ncuocan;
     private int ultimoMes;
-    private int nCuotasCancel;
-    private int tnotificado;
-
     public Prestamo() {
     }
 
@@ -26,10 +25,10 @@ public class Prestamo extends SugarRecord{
         this.montoEntrada = montoEntrada;
         this.fecha = fecha;
         this.descripcion = descripcion;
-        this.nCuotas = nCuotas;
+        this.ncuocan = nCuotas;
         ultimoMes = 0;
-        nCuotasCancel = 0;
-        tnotificado = 0;
+        ncuocan = 0;
+        notificado = 0;
     }
 
     public String getAgenteFinanciero() {
@@ -57,10 +56,10 @@ public class Prestamo extends SugarRecord{
         this.descripcion = descripcion;
     }
     public int getnCuotas() {
-        return nCuotas;
+        return ncuocan;
     }
     public void setnCuotas(int nCuotas) {
-        this.nCuotas = nCuotas;
+        this.ncuocan = nCuotas;
     }
     public int getUltimoMes() {
         return ultimoMes;
@@ -68,16 +67,16 @@ public class Prestamo extends SugarRecord{
     public void setUltimoMes(int ultimoMes) {
         this.ultimoMes = ultimoMes;
     }
-    public int getnCuotasCancel() {
-        return nCuotasCancel;
+    public int getNcuoCan() {
+        return ncuocan;
     }
-    public void setnCuotasCancel(int nCuotasCancel) {
-        this.nCuotasCancel = nCuotasCancel;
+    public void setNcuoCan(int nCuotasCancel) {
+        this.ncuocan = nCuotasCancel;
     }
-    public int getTnotificado() {
-        return tnotificado;
+    public int getNotificado() {
+        return notificado;
     }
-    public void setTnotificado(int tnotificado) {
-        this.tnotificado = tnotificado;
+    public void setNotificado(int tnotificado) {
+        this.notificado = tnotificado;
     }
 }
