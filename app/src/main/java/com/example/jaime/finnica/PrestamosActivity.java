@@ -126,6 +126,7 @@ public class PrestamosActivity extends AppCompatActivity implements View.OnClick
 
             prestamo.save();
 
+
             fp.agregar(prestamo);
             Toast.makeText(this, "AGREGADO",
                     Toast.LENGTH_SHORT).show();

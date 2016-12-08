@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.jaime.finnica.R;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -19,6 +20,7 @@ import java.util.List;
 public class PrestamoAdapter extends ArrayAdapter<Prestamo> {
 
 
+    SimpleDateFormat formato= new SimpleDateFormat("dd/MM/yyyy");
     TextView monto;
     TextView desc;
     TextView fecha;
@@ -47,7 +49,7 @@ public class PrestamoAdapter extends ArrayAdapter<Prestamo> {
 
         agente.setText(prestamo.getAgenteFinanciero());
         desc.setText(prestamo.getDescripcion());
-        fecha.setText(prestamo.getFecha().getDay()+"/"+prestamo.getFecha().getMonth()+"/"+(prestamo.getFecha().getYear()+1900));
+        fecha.setText(formato.format(prestamo.getFecha()));
         monto.setText(String.valueOf(prestamo.getMontoEntrada()));
         cuota.setText(String.valueOf(prestamo.getnCuotas()));
 

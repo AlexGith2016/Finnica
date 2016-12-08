@@ -40,7 +40,7 @@ public class Cronometro extends Service {
     private double cronometro = 0;
     int i = 0;
     private Handler handler;
-    Prestamo deuda[] =new Prestamo[2];
+    List<Prestamo>deudas;
     String agenteDeuda;
     String infoDeuda;
 
@@ -59,7 +59,7 @@ public class Cronometro extends Service {
     public void onCreate() {
         super.onCreate();
         // Toast.makeText(this, "llego al cronometro:  ", Toast.LENGTH_SHORT).show();
-        agregar();
+
         iniciarCronometro();
 
 
@@ -87,6 +87,7 @@ public class Cronometro extends Service {
         temporizador.scheduleAtFixedRate(new TimerTask() {
             public void run() {
                 cronometro += 3;
+                agregar();
                 compararFecha();
                 Notificar(cronometro+" ");
 
@@ -115,22 +116,9 @@ public class Cronometro extends Service {
 
 
     public void agregar(){
+        deudas=Prestamo.listAll(Prestamo.class);
+        Notificar("las cargo al arreglo "+deudas.size());
 
-        Prestamo p1;
-        Prestamo p2;
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            p1= new Prestamo("Robles",1000f, formato.parse("8/11/2016"),"me debes",4);
-            deuda[0]=p1;
-            //deudas.add(p1);
-            p2= new Prestamo("Peralta",1000f, formato.parse("9/11/2016"),"me debes",1);
-
-            deuda[1]=p2;
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        // deudas=deudas2;
     }
 
 
@@ -210,10 +198,11 @@ public class Cronometro extends Service {
 
 
 
-
-        for(int i = 0; i<2;i++)
+        Notificar("antes del for: "+deudas.size());
+        for(int i = 0; i<deudas.size();i++)
         {
-            Prestamo e = deuda[i];
+
+            Prestamo e = deudas.get(i);
             Alerta("e.getUltimoMes() "+e.getUltimoMes());
             Notificar("entro al for");
             //fecha de la deuda
@@ -256,6 +245,8 @@ public class Cronometro extends Service {
                         e.setNotificado(1);
                         e.setUltimoMes(mA);//se guarda el ultimo mes que se notifica
                         e.setNcuoCan(e.getNcuoCan()+1);
+                        e.save();
+
                         Alerta("numero cuotas candeladas "+e.getNcuoCan());
                         return 1;
                     }
