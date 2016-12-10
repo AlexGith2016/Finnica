@@ -56,7 +56,7 @@ public class PagoAdapter extends ArrayAdapter<Pago> {
         monto.setText(String.valueOf(pago.getMonto()));
         descripcion.setText(pago.getDescripcion());
         fechaPago.setText(formato.format(pago.getFechaPago()));
-        prestamo.setText(pago.getPrestamo().getAgenteFinanciero());
+        prestamo.setText(pago.getPrestamo().getDescripcion());
 
         return convertView;
     }

@@ -1,5 +1,4 @@
 package com.example.jaime.finnica.fragmentClasses;
-import android.support.v4.app.Fragment;
 import android.app.Dialog;
 
 import android.support.v4.app.ListFragment;
@@ -176,10 +175,10 @@ public class FragmentIngresos extends ListFragment {
         final Dialog dialog = new Dialog(getContext());
         dialog.setContentView(R.layout.input_ingresos);
 
-        final EditText tv1 = (EditText) dialog.findViewById(R.id.txtActDescIngresos);
-        final EditText tv2= (EditText)dialog.findViewById(R.id.txtActMontoIngresos);
-        final EditText tv3 = (EditText) dialog.findViewById(R.id.txtActFechaIngresos);
-        final Spinner spn  = (Spinner) dialog.findViewById(R.id.spinnerCategoria);
+        final EditText tv1 = (EditText) dialog.findViewById(R.id.txtActDescPago);
+        final EditText tv2= (EditText)dialog.findViewById(R.id.txtActMontoPago);
+        final EditText tv3 = (EditText) dialog.findViewById(R.id.txtActFechaPago);
+        final Spinner spn  = (Spinner) dialog.findViewById(R.id.spinnerPago);
         final TextView tv4=(TextView) dialog.findViewById(R.id.txtCategoria);
 //Spinner
         List<String> spinnerArray = new ArrayList<String>();
@@ -202,7 +201,7 @@ public class FragmentIngresos extends ListFragment {
         String cat = ingreso.getCategoria();
         tv4.setText(cat);
 
-        Button button = (Button)dialog.findViewById(R.id.btnActIngresos);
+        Button button = (Button)dialog.findViewById(R.id.btnActPago);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
