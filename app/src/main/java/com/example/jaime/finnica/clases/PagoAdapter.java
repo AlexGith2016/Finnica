@@ -46,7 +46,7 @@ public class PagoAdapter extends ArrayAdapter<Pago> {
         }
 
         monto = (TextView) convertView.findViewById(R.id.txtMontoPagoItem);
-        descripcion = (TextView) convertView.findViewById(R.id.txtDescPagoItem);
+        descripcion = (TextView) convertView.findViewById(R.id.txtDescripcionPagoItem);
         fechaPago = (TextView) convertView.findViewById(R.id.txtFechaPagoPagoItem);
         prestamo = (TextView) convertView.findViewById(R.id.txtPrestamoPagoItem);
 

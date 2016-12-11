@@ -10,25 +10,6 @@
         android:layout_weight="1050.39">
 
         <TextView
-            android:text="Monto:"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView31"
-            android:textSize="18sp"
-            android:textAlignment="viewStart"
-            android:layout_alignTop="@+id/txtActMontoPago"
-            android:layout_alignParentStart="true" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="date"
-            android:ems="10"
-            android:id="@+id/txtActFechaPago"
-            android:layout_centerVertical="true"
-            android:layout_alignStart="@+id/txtActMontoPago" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -40,11 +21,11 @@
 
         <Spinner
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/spinnerPago"
             android:layout_below="@+id/textView11"
             android:layout_alignParentEnd="true"
-            android:layout_toEndOf="@+id/textView11" />
+            android:layout_toEndOf="@+id/textView11"
+            android:layout_height="37dp" />
 
         <TextView
             android:text="Actualizar Pago"
@@ -70,35 +51,8 @@
             android:layout_alignStart="@+id/btnActPago"
             android:layout_marginStart="37dp"
             android:textSize="16sp"
-            android:layout_above="@+id/spinnerPago" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/txtActDescPago"
-            android:layout_above="@+id/txtActMontoPago"
-            android:layout_alignStart="@+id/btnActPago"
-            android:layout_marginBottom="25dp" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/txtActMontoPago"
-            android:layout_above="@+id/txtActFechaPago"
-            android:layout_alignStart="@+id/txtActDescPago" />
-
-        <Button
-            android:text="actualizar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnActPago"
-            android:layout_marginTop="88dp"
-            android:layout_below="@+id/txtActFechaPago"
-            android:layout_centerHorizontal="true" />
+            android:layout_above="@+id/spinnerPago"
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:text="Descripcion:"
@@ -106,8 +60,52 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView32"
             android:textSize="18sp"
-            android:layout_alignTop="@+id/txtActDescPago"
-            android:layout_alignParentStart="true" />
+            android:layout_below="@+id/spinnerPago"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/spinnerPago"
+            android:layout_alignBottom="@+id/txtActDescPago" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/txtActDescPago"
+            android:layout_below="@+id/spinnerPago"
+            android:layout_alignStart="@+id/btnActPago"
+            android:layout_alignParentEnd="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/txtActMontoPago"
+            android:layout_below="@+id/textView32"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/textView32" />
+
+        <TextView
+            android:text="Monto:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView31"
+            android:textSize="18sp"
+            android:textAlignment="viewStart"
+            android:layout_below="@+id/textView32"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/txtActDescPago"
+            android:layout_alignBottom="@+id/txtActMontoPago" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/txtActFechaPago"
+            android:layout_below="@+id/txtActMontoPago"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/textView31" />
 
         <TextView
             android:text="Fecha:"
@@ -116,18 +114,18 @@
             android:id="@+id/textView33"
             android:textSize="18sp"
             android:textAlignment="viewStart"
-            android:layout_alignBottom="@+id/txtActFechaPago"
-            android:layout_alignParentStart="true" />
+            android:layout_below="@+id/textView31"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/txtActFechaPago"
+            android:layout_above="@+id/btnActPago" />
 
         <Button
-            style="?android:attr/buttonStyleSmall"
+            android:text="actualizar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cambiar"
-            android:id="@+id/btnCambiarPrestamo"
-            android:layout_below="@+id/spinnerPago"
-            android:layout_alignEnd="@+id/txtActMontoPago"
-            android:onClick="habilitarPrestamo"/>
+            android:id="@+id/btnActPago"
+            android:layout_below="@+id/txtActFechaPago"
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
 

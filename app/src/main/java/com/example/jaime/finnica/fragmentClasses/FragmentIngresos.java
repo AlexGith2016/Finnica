@@ -29,6 +29,7 @@ import com.example.jaime.finnica.clases.IngresosAdapter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -79,27 +80,7 @@ public class FragmentIngresos extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        try {
-            System.out.println("Tratar de crear tabla Ingresos");
-
-            if(Ingresos.isSugarEntity(Ingresos.class) && Ingresos.count(Ingresos.class) > 0){
-                listaI = Ingresos.listAll(Ingresos.class);
-                adapter = new IngresosAdapter(getActivity(), listaI);
-                setListAdapter(adapter);
-                System.out.println("Listo y servido");
-            }else {
-                listaI = new ArrayList<>();
-                adapter = new IngresosAdapter(getActivity(),listaI);
-                setListAdapter(adapter);
-                System.out.println("nada que ver pana");
-            }
-        }catch (Exception e){
-            e.getMessage();
-        }
-
-
-
+        llenarListaIngresos();
     }
 
     @Override
@@ -160,10 +141,41 @@ public class FragmentIngresos extends ListFragment {
         });
     }
 
+    public void llenarListaIngresos(){
+        try {
+            System.out.println("Tratar de crear tabla Ingresos");
 
+            if(Ingresos.isSugarEntity(Ingresos.class) && Ingresos.count(Ingresos.class) > 0){
+                listaI = Ingresos.listAll(Ingresos.class);
+                adapter = new IngresosAdapter(getActivity(), listaI);
+                setListAdapter(adapter);
+                System.out.println("Listo y servido");
+            }else {
+                listaI = new ArrayList<>();
+                adapter = new IngresosAdapter(getActivity(),listaI);
+                setListAdapter(adapter);
+                System.out.println("nada que ver pana");
+            }
+        }catch (Exception e){
+            e.getMessage();
+        }
+    }
 
-
-
+    public void buscarIngreso(Date fechaconsultaIngreso){
+        List<Ingresos> listaConsultaIngresos = new ArrayList<>();
+        for (Ingresos ingreso: listaI) {
+            if(fechaconsultaIngreso.getMonth() == ingreso.getFechaIngreso().getMonth()){
+                listaConsultaIngresos.add(ingreso);
+            }
+        }
+        if(listaConsultaIngresos.size() <= 0){
+            Toast.makeText(getActivity(), "No hay datos para mostrar", Toast.LENGTH_LONG).show();
+        }else{
+            listaI = listaConsultaIngresos;
+            adapter = new IngresosAdapter(getActivity(), listaI);
+            setListAdapter(adapter);
+        }
+    }
 
     public void agregar(Ingresos ingreso){
         listaI.add(ingreso);

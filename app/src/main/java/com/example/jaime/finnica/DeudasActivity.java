@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -33,11 +34,10 @@ public class DeudasActivity extends FragmentActivity implements  FragmentPago.In
     private EditText descripcion;
     private EditText monto;
     private DatePicker fecha;
+
+    private Button btnResetPago;
     FragmentPago fgm;
-    List<Prestamo> listaP;
-
-
-
+    List<Prestamo> listaPrest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,50 +49,29 @@ public class DeudasActivity extends FragmentActivity implements  FragmentPago.In
         fecha=(DatePicker) findViewById(R.id.dpFechaPagoG);
         spn=(Spinner) findViewById(R.id.cbxpagoG);
         spnInforme=(Spinner) findViewById(R.id.cbxpago);
+        btnResetPago = (Button) findViewById(R.id.btnResetPago);
 
         List<String> spinnerArray = new ArrayList<String>();
-
-
-
-
-
 //cargar los prestamos en el spinner
         try {
-
-
             if(Prestamo.isSugarEntity(Prestamo.class) && Prestamo.count(Prestamo.class) > 0){
-                listaP = Prestamo.listAll(Prestamo.class);
+                listaPrest = Prestamo.listAll(Prestamo.class);
                 for(int i=0;i< Prestamo.count(Prestamo.class);i++ ){
 
-                    spinnerArray.add(listaP.get(i).getDescripcion().toString());
-
-
-
+                    spinnerArray.add(listaPrest.get(i).getDescripcion().toString());
                 }
-
-
-
-            }else {
-
-
-            }
+            }else {}
         }catch (Exception e){
             e.getMessage();
         }
-
-
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1, spinnerArray);
 
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
-
         spn.setAdapter(adapter);
         spnInforme.setAdapter(adapter);
 
-
         Resources res = getResources();
-
 
         TabHost tabs=(TabHost)findViewById(android.R.id.tabhost);
         tabs.setup();
@@ -108,8 +87,12 @@ public class DeudasActivity extends FragmentActivity implements  FragmentPago.In
         tabs.addTab(spec);
 
         tabs.setCurrentTab(0);
-
-
+        btnResetPago.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fgm.llenarListaPago();
+            }
+        });
     }
 
     @Override
@@ -118,21 +101,16 @@ public class DeudasActivity extends FragmentActivity implements  FragmentPago.In
     }
 
     public void guardarPago(View view){
-
         String strFecha = String.valueOf(fecha.getDayOfMonth()) + "/" + String.valueOf(fecha.getMonth()+1) + "/" + String.valueOf(fecha.getYear());
-
         try {
             //guardar en lista
             Pago pago =new Pago();
 
-            pago.setPrestamo(listaP.get(spn.getSelectedItemPosition()));//PROBAR AQUI
+            pago.setPrestamo(listaPrest.get(spn.getSelectedItemPosition()));//PROBAR AQUI
             pago.setDescripcion(descripcion.getText().toString());
             pago.setFechaPago(formato.parse(strFecha));
             pago.setMonto(Float.parseFloat(monto.getText().toString()));
             pago.save();
-
-
-
 
             fgm.agregar(pago);
             Toast.makeText(this, "AGREGADO",Toast.LENGTH_SHORT).show();
@@ -143,8 +121,6 @@ public class DeudasActivity extends FragmentActivity implements  FragmentPago.In
     }
 
     public void busqueda(View view){
-        fgm.buscar(listaP.get(spnInforme.getSelectedItemPosition()).getDescripcion().toString());
-
-
+        fgm.buscarPagos(listaPrest.get(spnInforme.getSelectedItemPosition()));
     }
 }

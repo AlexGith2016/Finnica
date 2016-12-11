@@ -160,13 +160,13 @@
                                 android:layout_centerHorizontal="true" />
 
                             <Button
-                                android:text="Consultar"
-                                android:id="@+id/btnConsultarGasto"
-                                android:layout_below="@+id/textView2"
-                                android:layout_marginTop="15dp"
-                                android:layout_alignParentStart="true"
-                                android:layout_height="55dp"
-                                android:layout_width="105dp" />
+                            android:text="Consultar"
+                            android:id="@+id/btnConsultarGasto"
+                            android:layout_below="@+id/textView2"
+                            android:layout_marginTop="15dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_height="55dp"
+                            android:layout_width="105dp" />
 
                             <fragment
                                 android:layout_width="wrap_content"

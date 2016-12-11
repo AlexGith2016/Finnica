@@ -1,5 +1,7 @@
 package com.example.jaime.finnica;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +13,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jaime.finnica.clases.Prestamo;
@@ -22,6 +25,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class PrestamosActivity extends AppCompatActivity implements View.OnClickListener, FragmentPrestamo.InterfacePrestamo{
@@ -33,6 +37,7 @@ public class PrestamosActivity extends AppCompatActivity implements View.OnClick
      */
     private GoogleApiClient client;
 
+    private int dia, mes, anio;
     EditText agenteP;
     EditText montoP;
     DatePicker fechaP;
@@ -40,6 +45,13 @@ public class PrestamosActivity extends AppCompatActivity implements View.OnClick
     EditText cuotaP;
     Button btnIngresarP;
     FragmentPrestamo fp;
+    private DatePickerDialog.OnDateSetListener dialogoFecha;
+    private SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+    private TextView tvFechaConsultaPrestamo;
+    private Button btnConsultarPrestamos;
+    private Button btnEstablecerFechaPrestamo;
+    private Button btnResetPrestamo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +84,29 @@ public class PrestamosActivity extends AppCompatActivity implements View.OnClick
         cuotaP = (EditText)findViewById(R.id.txtCuotaPres);
         btnIngresarP = (Button) findViewById(R.id.btnIngPres);
 
+        tvFechaConsultaPrestamo = (TextView)findViewById(R.id.tvFechaPrestamo);
+        btnConsultarPrestamos = (Button)findViewById(R.id.btnConsultarPrestamo);
+        btnEstablecerFechaPrestamo =(Button)findViewById(R.id.btnFechaPrestamo);
+        btnResetPrestamo = (Button)findViewById(R.id.btnResetPrestamo);
+
+        final Calendar c = Calendar.getInstance();
+        anio = c.get(Calendar.YEAR);
+        mes = c.get(Calendar.MONTH);
+        dia = c.get(Calendar.DAY_OF_MONTH);
+        dialogoFecha = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                anio = year;
+                mes= month + 1;
+                dia = dayOfMonth;
+                tvFechaConsultaPrestamo.setText(dia+"/"+mes+"/"+anio);
+            }
+        };
+
         btnIngresarP.setOnClickListener(this);
+        btnConsultarPrestamos.setOnClickListener(this);
+        btnEstablecerFechaPrestamo.setOnClickListener(this);
+        btnResetPrestamo.setOnClickListener(this);
     }
 
     @Override
@@ -117,22 +151,44 @@ public class PrestamosActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        String strFecha = String.valueOf(fechaP.getDayOfMonth()) + "/" + String.valueOf(fechaP.getMonth()+1) + "/" + String.valueOf(fechaP.getYear());
+        switch (v.getId()){
+            case R.id.btnIngPres:
+                String strFecha = String.valueOf(fechaP.getDayOfMonth()) + "/" +
+                        String.valueOf(fechaP.getMonth()+1) + "/" + String.valueOf(fechaP.getYear());
+                try {
+                    Prestamo prestamo =  new Prestamo(agenteP.getText().toString(), Float.parseFloat(montoP.getText().toString()), formato.parse(strFecha),
+                            descP.getText().toString(), Integer.parseInt(cuotaP.getText().toString()));
+                    prestamo.save();
 
-        try {
-            Prestamo prestamo =  new Prestamo(agenteP.getText().toString(), Float.parseFloat(montoP.getText().toString()), format.parse(strFecha),
-                    descP.getText().toString(), Integer.parseInt(cuotaP.getText().toString()));
-
-            prestamo.save();
-
-
-            fp.agregar(prestamo);
-            Toast.makeText(this, "AGREGADO",
-                    Toast.LENGTH_SHORT).show();
-        } catch (ParseException e) {
-            e.printStackTrace();
+                    fp.agregar(prestamo);
+                    Toast.makeText(this, "AGREGADO",
+                            Toast.LENGTH_SHORT).show();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case R.id.btnConsultarPrestamo:
+                try {
+                    String fechaPas = dia+"/"+mes+"/"+anio;
+                    fp.buscarPrestamo(formato.parse(fechaPas));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case R.id.btnFechaPrestamo:
+                showDialog(0);
+                break;
+            case R.id.btnResetPrestamo:
+                fp.llenarListaPrestamos();
+                break;
+            default:
+                break;
         }
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        return new DatePickerDialog(this, android.app.AlertDialog.THEME_HOLO_DARK, dialogoFecha, anio, mes, dia);
     }
 
     @Override

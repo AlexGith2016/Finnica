@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
     <TextView
         android:id="@+id/txtDescripcionPagoItem"
-        android:layout_width="wrap_content"
+        android:layout_width="177dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="56dp"
+        android:layout_marginLeft="57dp"
         android:text="Descripcion"
         android:textAppearance="?attr/textAppearanceListItem"
-        android:background="#f1baba"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginRight="50dp" />
+        android:background="#f1baba" />
 
     <TextView
         android:id="@+id/txtMontoPagoItem"
-        android:layout_width="wrap_content"
+        android:layout_width="127dp"
         android:layout_height="wrap_content"
         android:text="Monto de pago"
         android:layout_below="@+id/txtDescPagoItem"
         android:layout_alignStart="@+id/txtAgentePrestamoItem"
         android:background="#b1f6d1"
-        android:layout_gravity="center_horizontal" />
+        android:layout_marginLeft="56dp" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Fecha de pago"
@@ -35,18 +34,17 @@
         android:layout_below="@+id/txtAgentePrestamoItem"
         android:layout_alignParentEnd="true"
         android:background="#e8ee91"
-        android:layout_gravity="center_horizontal" />
+        android:layout_marginLeft="57dp" />
 
     <TextView
         android:id="@+id/txtPrestamoPagoItem"
-        android:layout_width="wrap_content"
+        android:layout_width="176dp"
         android:layout_height="wrap_content"
-        android:text="Prestamo asociado"
-        android:background="@android:color/holo_green_light"
+        android:text="Prestamo hacia"
+        android:background="@android:color/holo_purple"
         android:layout_below="@+id/txtFechaPrestamoItem"
         android:layout_alignStart="@+id/txtFechaPrestamoItem"
-        android:layout_gravity="center_horizontal" />
-
+        android:layout_marginLeft="57dp" />
 
 
 </LinearLayout>

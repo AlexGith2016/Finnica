@@ -192,36 +192,54 @@
                             android:layout_centerHorizontal="true" />
 
                         <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:text="Consultar"
-                            android:id="@+id/btnConsultarGasto"
-                            android:layout_marginStart="22dp"
+                            android:id="@+id/btnConsultarPrestamo"
+                            android:layout_height="55dp"
+                            android:layout_width="105dp"
                             android:layout_below="@+id/textView2"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginTop="24dp" />
+                            android:layout_alignParentStart="true" />
+                        <Button
+                            android:text="reset"
+                            android:id="@+id/btnResetPrestamo"
+                            android:layout_height="55dp"
+                            android:layout_above="@+id/fragmentP"
+                            android:layout_toEndOf="@+id/btnConsultarPrestamo"
+                            android:layout_width="80dp" />
 
-                        <Spinner
-                            android:layout_width="210dp"
-                            android:layout_height="40dp"
-                            android:id="@+id/spinnerPres"
-                            android:layout_alignTop="@+id/btnConsultarGasto"
-                            android:layout_toEndOf="@+id/btnConsultarGasto"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="5dp" />
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvFechaPrestamo"
+                            android:textSize="18sp"
+                            android:layout_width="wrap_content"
+                            android:text="Buscar por"
+                            android:layout_alignBaseline="@+id/btnFechaPrestamo"
+                            android:layout_alignBottom="@+id/btnFechaPrestamo"
+                            android:layout_toStartOf="@+id/btnFechaPrestamo" />
 
                         <fragment
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:name="com.example.jaime.finnica.fragmentClasses.FragmentPrestamo"
                             android:id="@+id/fragmentP"
-                            android:layout_below="@+id/btnConsultarGasto"
+                            android:layout_below="@+id/btnConsultarPrestamo"
                             android:layout_alignParentStart="true"
-                            android:layout_marginTop="25dp"
+                            android:layout_marginTop="20dp"
                             android:layout_alignParentBottom="true"
                             android:layout_alignParentEnd="true"
                             class="com.example.jaime.finnica.fragmentClasses.FragmentPrestamo"
                             />
+
+                        <Button
+                            android:text="Fecha"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:id="@+id/btnFechaPrestamo"
+                            android:textColor="?android:attr/colorEdgeEffect"
+                            android:backgroundTint="?attr/colorControlHighlight"
+                            android:layout_marginEnd="5dp"
+                            android:layout_alignBaseline="@+id/btnResetPrestamo"
+                            android:layout_alignBottom="@+id/btnResetPrestamo"
+                            android:layout_alignParentEnd="true" />
                     </RelativeLayout>
 
                 </LinearLayout>

@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +19,6 @@ import com.example.jaime.finnica.fragmentClasses.FragmentGasto;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class GastosActivity extends FragmentActivity implements View.OnClickListener, FragmentGasto.InterfaceGasto{
 
@@ -128,6 +126,7 @@ public class GastosActivity extends FragmentActivity implements View.OnClickList
                 }
                 break;
             case R.id.btnResetGasto:
+
                 fg.llenarLista();
                 break;
             default:

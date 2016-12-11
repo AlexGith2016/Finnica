@@ -151,7 +151,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Ingresar"
-                            android:onClick="onClick"
                             android:id="@+id/btnGuardarIngreso"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true" />
@@ -174,48 +173,65 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Informe financiero"
+                            android:text="Consultar Ingresos"
                             android:id="@+id/textView8"
-                            android:textSize="25dp" />
+                            android:textSize="25dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentStart="true"
+                            android:textAlignment="center" />
+
+                        <Button
+                            android:text="reset"
+                            android:id="@+id/btnResetIngreso"
+                            android:layout_height="55dp"
+                            android:layout_above="@+id/fragmentI"
+                            android:layout_toEndOf="@+id/btnConsultarIngreso"
+                            android:layout_width="80dp" />
 
                         <!-- aqui el scroll-->
 
-                        <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_below="@+id/textView8"
-                            android:layout_alignParentStart="true"
-                            android:paddingTop="8dp"
-                            android:id="@+id/linearLayout">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textAppearance="?android:attr/textAppearanceMedium"
-                                android:text="Generar por:"
-                                android:id="@+id/textView10" />
-
-                            <Spinner
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:id="@+id/spinner_informe"
-                                android:layout_weight="1" />
-
-
-                        </LinearLayout>
-
                         <fragment
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:name="com.example.jaime.finnica.fragmentClasses.FragmentIngresos"
                             android:id="@+id/fragmentI"
-                            android:layout_below="@+id/linearLayout"
+                            class="com.example.jaime.finnica.fragmentClasses.FragmentIngresos"
+                            android:layout_alignParentBottom="true"
                             android:layout_alignParentStart="true"
-                            class="com.example.jaime.finnica.fragmentClasses.FragmentIngresos">
+                            android:layout_alignParentEnd="true"
+                            android:layout_below="@+id/btnConsultarIngreso">
 
 
                         </fragment>
+
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvFechaIngreso"
+                            android:textSize="18sp"
+                            android:layout_width="wrap_content"
+                            android:text="Buscar por"
+                            android:layout_alignBaseline="@+id/btnFechaIngreso"
+                            android:layout_alignBottom="@+id/btnFechaIngreso"
+                            android:layout_toStartOf="@+id/btnFechaIngreso" />
+
+                        <Button
+                            android:text="Consultar"
+                            android:id="@+id/btnConsultarIngreso"
+                            android:layout_height="55dp"
+                            android:layout_width="105dp"
+                            android:layout_below="@+id/textView8"
+                            android:layout_alignParentStart="true" />
+
+                        <Button
+                            android:text="Fecha"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:id="@+id/btnFechaIngreso"
+                            android:textColor="?android:attr/colorEdgeEffect"
+                            android:backgroundTint="?attr/colorControlHighlight"
+                            android:layout_alignBaseline="@+id/btnConsultarIngreso"
+                            android:layout_alignBottom="@+id/btnConsultarIngreso"
+                            android:layout_alignParentEnd="true" />
 
 
                     </RelativeLayout>
@@ -225,6 +241,6 @@
 
 
             </FrameLayout>
-        </LinearLayout>
+</LinearLayout>
     </TabHost>
 </LinearLayout>

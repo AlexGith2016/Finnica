@@ -26,6 +26,7 @@ import com.example.jaime.finnica.clases.PrestamoAdapter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class FragmentPrestamo extends ListFragment {
@@ -43,24 +44,7 @@ public class FragmentPrestamo extends ListFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        try {
-            System.out.println("Tratar de crear tabla Prestamo");
-
-            if(Prestamo.isSugarEntity(Prestamo.class) && Prestamo.count(Prestamo.class) > 0){
-                listaP = Prestamo.listAll(Prestamo.class);
-                adapterP = new PrestamoAdapter(getActivity(), listaP);
-                setListAdapter(adapterP);
-                System.out.println("Listo y servido");
-            }else {
-                listaP = new ArrayList<>();
-                adapterP = new PrestamoAdapter(getActivity(), listaP);
-                setListAdapter(adapterP);
-                System.out.println("nada que ver pana");
-            }
-        }catch (Exception e){
-            e.getMessage();
-
-        }
+        llenarListaPrestamos();
     }
 
     @Override
@@ -137,6 +121,43 @@ public class FragmentPrestamo extends ListFragment {
                 return false;
             }
         });
+    }
+
+    public void llenarListaPrestamos(){
+        try {
+            System.out.println("Tratar de crear tabla Prestamo");
+
+            if(Prestamo.isSugarEntity(Prestamo.class) && Prestamo.count(Prestamo.class) > 0){
+                listaP = Prestamo.listAll(Prestamo.class);
+                adapterP = new PrestamoAdapter(getActivity(), listaP);
+                setListAdapter(adapterP);
+                System.out.println("Listo y servido");
+            }else {
+                listaP = new ArrayList<>();
+                adapterP = new PrestamoAdapter(getActivity(), listaP);
+                setListAdapter(adapterP);
+                System.out.println("nada que ver pana");
+            }
+        }catch (Exception e){
+            e.getMessage();
+
+        }
+    }
+
+    public void buscarPrestamo(Date fechaconsultaPrestamo){
+        List<Prestamo> listaConsultaPrestamo = new ArrayList<>();
+        for (Prestamo prestamo: listaP) {
+            if(fechaconsultaPrestamo.getMonth() == prestamo.getFecha().getMonth()){
+                listaConsultaPrestamo.add(prestamo);
+            }
+        }
+        if(listaConsultaPrestamo.size() <= 0){
+            Toast.makeText(getActivity(), "No hay datos para mostrar", Toast.LENGTH_LONG).show();
+        }else{
+            listaP = listaConsultaPrestamo;
+            adapterP = new PrestamoAdapter(getActivity(), listaP);
+            setListAdapter(adapterP);
+        }
     }
 
     public void agregar(Prestamo prestamo){

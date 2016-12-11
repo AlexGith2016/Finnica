@@ -10,6 +10,7 @@ import com.example.jaime.finnica.R;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -20,7 +21,7 @@ public class IngresosAdapter extends ArrayAdapter<Ingresos> {
     TextView Descripcion;
     TextView Fecha;
     TextView monto;
-
+    private SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
     public IngresosAdapter(Context context, List<Ingresos> objects){
         super(context,0,objects);
@@ -48,7 +49,7 @@ public class IngresosAdapter extends ArrayAdapter<Ingresos> {
         Categoria.setText(ingreso.getCategoria());
         monto.setText(String.valueOf(ingreso.getMonto()));
         Descripcion.setText(ingreso.getDescripcion());
-        Fecha.setText(ingreso.getFechaIngreso().getDay()+"/"+ingreso.getFechaIngreso().getMonth()+"/"+(ingreso.getFechaIngreso().getYear()+1900));
+        Fecha.setText(formato.format(ingreso.getFechaIngreso()));
 
         return convertView;
     }

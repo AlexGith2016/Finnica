@@ -47,7 +47,6 @@ public class FragmentPago extends ListFragment {
     boolean selectedLong;
     int pos;
     List<Prestamo> listaPrest;
-    boolean cambiaPrestamo=false;
     Dialog dialog;
      Spinner spn ;
 
@@ -91,24 +90,7 @@ public class FragmentPago extends ListFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        try {
-            System.out.println("Tratar de crear tabla Pago");
-
-            if(Pago.isSugarEntity(Pago.class) && Pago.count(Pago.class) > 0){
-                listaP = Pago.listAll(Pago.class);
-                adapter = new PagoAdapter(getActivity(), listaP);
-                setListAdapter(adapter);
-
-            }else {
-                listaP = new ArrayList<>();
-                adapter = new PagoAdapter(getActivity(),listaP);
-                setListAdapter(adapter);
-
-            }
-        }catch (Exception e){
-            e.getMessage();
-        }
+        llenarListaPago();
     }
 
 
@@ -116,12 +98,6 @@ public class FragmentPago extends ListFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         registerForContextMenu(getListView());
-    }
-
-
-    public void habilitarPrestamo(View view){
-        cambiaPrestamo=true;
-        spn.setEnabled(true);
     }
 
     @Override
@@ -176,7 +152,41 @@ public class FragmentPago extends ListFragment {
         });
     }
 
+    public void buscarPagos(Prestamo prestamo){
+        List<Pago> listaConsultaPago = new ArrayList<>();
+        for (Pago pago: listaP) {
+            if (prestamo.getId() == pago.getPrestamo().getId()){
+                listaConsultaPago.add(pago);
+            }
+        }
+        if(listaConsultaPago.size() <= 0){
+            Toast.makeText(getActivity(), "No hay datos para mostrar", Toast.LENGTH_LONG).show();
+        }else{
+            listaP = listaConsultaPago;
+            adapter = new PagoAdapter(getActivity(), listaP);
+            setListAdapter(adapter);
+        }
+    }
 
+    public void llenarListaPago(){
+        try {
+            System.out.println("Tratar de crear tabla Pago");
+
+            if(Pago.isSugarEntity(Pago.class) && Pago.count(Pago.class) > 0){
+                listaP = Pago.listAll(Pago.class);
+                adapter = new PagoAdapter(getActivity(), listaP);
+                setListAdapter(adapter);
+
+            }else {
+                listaP = new ArrayList<>();
+                adapter = new PagoAdapter(getActivity(),listaP);
+                setListAdapter(adapter);
+
+            }
+        }catch (Exception e){
+            e.getMessage();
+        }
+    }
 
     public void agregar(Pago pago){
         listaP.add(pago);
@@ -186,7 +196,7 @@ public class FragmentPago extends ListFragment {
 
 
     public void actualizar(final Pago pago, final int index){
-          dialog = new Dialog(getContext());//PROBAR AQUII
+        dialog = new Dialog(getContext());//PROBAR AQUII
         dialog.setContentView(R.layout.input_pago);
 
         final EditText tv1 = (EditText) dialog.findViewById(R.id.txtActDescPago);
@@ -194,75 +204,43 @@ public class FragmentPago extends ListFragment {
         final EditText tv3 = (EditText) dialog.findViewById(R.id.txtActFechaPago);
         final TextView tv4=(TextView) dialog.findViewById(R.id.txtPago);
 
-          spn  = (Spinner) dialog.findViewById(R.id.spinnerPago);
+        spn  = (Spinner) dialog.findViewById(R.id.spinnerPago);
         List<String> spinnerArray = new ArrayList<String>();
        //Spinner
-
         try {
-
-
             if(Prestamo.isSugarEntity(Prestamo.class) && Prestamo.count(Prestamo.class) > 0){
                 listaPrest = Prestamo.listAll(Prestamo.class);
                 for(int i=0;i< Prestamo.count(Prestamo.class);i++ ){
-
                     spinnerArray.add(listaPrest.get(i).getDescripcion().toString());
-
                 }
-
-
-
-            }else {
-
-
-            }
-
+            }else {}
             //****Spinner
         }catch (Exception e){
             e.getMessage();
         }
-
-
-
         ArrayAdapter<String> adap = new ArrayAdapter<String> (getContext(), android.R.layout.simple_list_item_1, spinnerArray);
-
         adap.setDropDownViewResource(android.R.layout.simple_list_item_1);
-
         spn.setAdapter(adap);
-        spn.setEnabled(false);
 
         //*****
-
         tv1.setText(pago.getDescripcion());
         tv2.setText(String.valueOf(pago.getMonto()));
         tv3.setText(formato.format(pago.getFechaPago()));
         String prest = pago.getPrestamo().getDescripcion();
         tv4.setText(prest);
-
         Button button = (Button)dialog.findViewById(R.id.btnActPago);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Pago p= null;
+                Pago p;
                 try {
-
                     p= listaP.get(index);
-
                     p.setDescripcion(tv1.getText().toString());
                     p.setMonto(Float.parseFloat(tv2.getText().toString()));
                     p.setFechaPago(formato.parse(tv3.getText().toString()));
+                    p.setPrestamo(listaPrest.get(spn.getSelectedItemPosition()));
 
-
-                    if(cambiaPrestamo=true){
-                        p.setPrestamo(listaPrest.get(spn.getSelectedItemPosition()));
-
-                    }
-                    else
-                    {
-                       p.setPrestamo(pago.getPrestamo());
-                    }
                     p.save();
-
-
                     listaP.set(index, p);
                     adapter.notifyDataSetChanged();
                     dialog.dismiss();
@@ -281,7 +259,7 @@ public class FragmentPago extends ListFragment {
     }
 
 
-    public void buscar(String prestamoDesc){
+    /*public void buscar(String prestamoDesc){
         List<Pago> listaConsulta = new ArrayList<>();
         for (Pago pago : listaP) {
             if(pago.getPrestamo().getDescripcion()==prestamoDesc)
@@ -296,6 +274,6 @@ public class FragmentPago extends ListFragment {
             adapter = new PagoAdapter(getActivity(), listaP);
             setListAdapter(adapter);
         }
-    }
+    }*/
 
 }

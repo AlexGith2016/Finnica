@@ -20,7 +20,7 @@ import java.util.List;
 public class PrestamoAdapter extends ArrayAdapter<Prestamo> {
 
 
-    SimpleDateFormat formato= new SimpleDateFormat("dd/MM/yyyy");
+    private SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
     TextView monto;
     TextView desc;
     TextView fecha;
