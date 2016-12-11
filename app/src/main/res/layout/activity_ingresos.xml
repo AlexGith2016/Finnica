@@ -204,16 +204,6 @@
 
                         </fragment>
 
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tvFechaIngreso"
-                            android:textSize="18sp"
-                            android:layout_width="wrap_content"
-                            android:text="Buscar por"
-                            android:layout_alignBaseline="@+id/btnFechaIngreso"
-                            android:layout_alignBottom="@+id/btnFechaIngreso"
-                            android:layout_toStartOf="@+id/btnFechaIngreso" />
-
                         <Button
                             android:text="Consultar"
                             android:id="@+id/btnConsultarIngreso"
@@ -232,6 +222,16 @@
                             android:layout_alignBaseline="@+id/btnConsultarIngreso"
                             android:layout_alignBottom="@+id/btnConsultarIngreso"
                             android:layout_alignParentEnd="true" />
+
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvFechaIngreso"
+                            android:textSize="20sp"
+                            android:layout_width="wrap_content"
+                            android:text="Buscar por"
+                            android:layout_alignBaseline="@+id/btnFechaIngreso"
+                            android:layout_alignBottom="@+id/btnFechaIngreso"
+                            android:layout_toStartOf="@+id/btnFechaIngreso" />
 
 
                     </RelativeLayout>

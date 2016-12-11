@@ -208,8 +208,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_alignBaseline="@+id/btnResetGasto"
                                 android:layout_alignBottom="@+id/btnResetGasto"
-                                android:layout_toStartOf="@+id/btnFechaGasto"
-                                android:text="Buscar por" />
+                                android:text="Buscar por"
+                                android:layout_toStartOf="@+id/btnFechaGasto" />
 
                         </RelativeLayout>
                     </LinearLayout>

@@ -219,16 +219,14 @@
 
                             <fragment
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
                                 android:name="com.example.jaime.finnica.fragmentClasses.FragmentPrestamo"
                                 android:id="@+id/fragmentP"
                                 android:layout_below="@+id/btnConsultarPrestamo"
                                 android:layout_alignParentStart="true"
                                 android:layout_marginTop="20dp"
-                                android:layout_alignParentBottom="true"
                                 android:layout_alignParentEnd="true"
                                 class="com.example.jaime.finnica.fragmentClasses.FragmentPrestamo"
-                                />
+                                android:layout_height="350dp" />
 
                             <Button
                                 android:text="Fecha"
