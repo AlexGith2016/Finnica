@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private void iniciarCronometro() {
         Intent service = new Intent(this, Cronometro.class);
         startService(service);
-        Toast.makeText(this,"se fue a cronometro",Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this,"se fue a cronometro",Toast.LENGTH_SHORT).show();
     }
 
     /**

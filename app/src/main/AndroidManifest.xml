@@ -2,39 +2,39 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jaime.finnica">
 
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+      <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name="com.orm.SugarApp"
-        >
-        <meta-data android:name="DATABASE"
-            android:value="sugar_example.db" />
-        <meta-data android:name="VERSION"
-            android:value="4" />
-        <meta-data android:name="QUERY_LOG"
-            android:value="true" />
-        <meta-data android:name="DOMAIN_PACKAGE_NAME"
-            android:value="com.example.jaime.finnica" />
+      <application
+          android:allowBackup="true"
+          android:icon="@mipmap/ic_launcher"
+          android:label="@string/app_name"
+          android:supportsRtl="true"
+          android:theme="@style/AppTheme"
+          android:name="com.orm.SugarApp"
+          >
+          <meta-data android:name="DATABASE"
+              android:value="sugar_example.db" />
+          <meta-data android:name="VERSION"
+              android:value="4" />
+          <meta-data android:name="QUERY_LOG"
+              android:value="true" />
+          <meta-data android:name="DOMAIN_PACKAGE_NAME"
+              android:value="com.example.jaime.finnica" />
 
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+          <activity android:name=".MainActivity">
+              <intent-filter>
+                  <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".MainMenu" />
-        <activity android:name=".IngresosActivity" />
-        <activity android:name=".ConfiguracionActivity" />
-        <activity android:name=".PrestamosActivity" />
-        <activity android:name=".DeudasActivity" />
-        <activity android:name=".GastosActivity" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+                  <category android:name="android.intent.category.LAUNCHER" />
+              </intent-filter>
+          </activity>
+          <activity android:name=".MainMenu" />
+          <activity android:name=".IngresosActivity" />
+          <activity android:name=".ConfiguracionActivity" />
+          <activity android:name=".PrestamosActivity" />
+          <activity android:name=".DeudasActivity" />
+          <activity android:name=".GastosActivity" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+       App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

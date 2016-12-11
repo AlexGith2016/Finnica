@@ -109,7 +109,7 @@ public class Cronometro extends Service {
         final String number= numero;
         UPDATE_LISTENER.runOnUiThread(new Runnable() {
             public void run() {
-                Toast.makeText(UPDATE_LISTENER, "Segundos:  "+number, Toast.LENGTH_SHORT).show();
+                Toast.makeText(UPDATE_LISTENER, " "+number, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -117,7 +117,7 @@ public class Cronometro extends Service {
 
     public void agregar(){
         deudas=Prestamo.listAll(Prestamo.class);
-        Notificar("las cargo al arreglo "+deudas.size());
+       // Notificar("las cargo al arreglo "+deudas.size());
 
     }
 
@@ -181,7 +181,7 @@ public class Cronometro extends Service {
         return c;
     }
     public int compararFecha(){
-        Notificar("entro al metodo");
+       // Notificar("entro al metodo");
 
         int encontrado=0;
         Date fechad;//fecha deuda
@@ -191,7 +191,7 @@ public class Cronometro extends Service {
 
 
         int dia = fechaA.get(Calendar.DAY_OF_MONTH);
-      //  Notificar("El puto día es "+dia);
+
         int dA=dia;
         int mA=fechaA.get(Calendar.MONTH)+1;
         int aA=fechaA.get(Calendar.YEAR);
@@ -204,7 +204,7 @@ public class Cronometro extends Service {
 
             Prestamo e = deudas.get(i);
             Alerta("e.getUltimoMes() "+e.getUltimoMes());
-            Notificar("entro al for");
+           // Notificar("entro al for");
             //fecha de la deuda
 
             // Calendar cal = Calendar.getInstance();
@@ -212,7 +212,7 @@ public class Cronometro extends Service {
             Calendar cal=convertirDateToCalendar(e.getFecha());
             int d = cal.get(Calendar.DAY_OF_MONTH);
 
-            Notificar("El día de la deuda es "+d);
+           // Notificar("El día de la deuda es "+d);
             int m=cal.get(Calendar.MONTH)+1;
             int a=cal.get(Calendar.YEAR);
 
