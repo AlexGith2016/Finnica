@@ -1,252 +1,252 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <ScrollView
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/scrollView4"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView7"
     android:layout_below="@+id/editText13"
     android:layout_toEndOf="@+id/textView25" android:layout_width="fill_parent" android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     app:layout_collapseParallaxMultiplier="1.0">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
 
-    <TabHost android:id="@android:id/tabhost"
-        android:layout_width="match_parent"
-        android:layout_height="750dp">
-
-        <LinearLayout
-            android:orientation="vertical"
+        <TabHost android:id="@android:id/tabhost"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-            <TabWidget android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@android:id/tabs" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
 
-            <FrameLayout android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@android:id/tabcontent" >
+                <TabWidget android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@android:id/tabs" />
 
-                <!-- primer linear-->
-                <LinearLayout android:id="@+id/tab1"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                <FrameLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@android:id/tabcontent" >
 
-                    <TextView
-                        android:layout_width="261dp"
-                        android:layout_height="wrap_content"
-                        android:text="Prestamos"
-                        android:id="@+id/tvGastos"
-                        android:layout_gravity="center_horizontal"
-                        android:textAlignment="center"
-                        android:textSize="30dp"
-                        android:textColor="@color/accent_material_light"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentStart="true" />
-
-                    <RelativeLayout
+                    <!-- primer linear-->
+                    <LinearLayout android:id="@+id/tab1"
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent" >
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Agente Financiero"
-                            android:id="@+id/textView16"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentStart="true" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Cuotas"
-                            android:id="@+id/textView17"
-                            android:layout_marginTop="36dp"
-                            android:layout_below="@+id/textView16"
-                            android:layout_alignParentStart="true" />
-
-                        <EditText
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:id="@+id/txtCuotaPres"
-                            android:layout_below="@+id/txtAgentePres"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignStart="@+id/txtAgentePres" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Monto $C"
-                            android:id="@+id/textView18"
-                            android:layout_marginTop="33dp"
-                            android:layout_below="@+id/txtCuotaPres"
-                            android:layout_alignParentStart="true" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Fecha"
-                            android:id="@+id/textView19"
-                            android:layout_below="@+id/txtMontoPres"
-                            android:layout_alignEnd="@+id/textView17"
-                            android:layout_marginTop="78dp" />
-
-                        <DatePicker
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:id="@+id/dtFechaPres"
-                            android:layout_below="@+id/txtMontoPres"
-                            android:layout_marginTop="34dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignStart="@+id/txtMontoPres" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Descripcion:"
-                            android:id="@+id/textView21"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentStart="true" />
-
-                        <ScrollView
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="93dp"
-                            android:id="@+id/scrollView"
-                            android:layout_below="@+id/dtFechaPres"
-                            android:layout_alignStart="@+id/dtFechaPres"
-                            android:layout_marginTop="10dp">
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="Cuotas"
+                                android:id="@+id/textView17"
+                                android:layout_marginTop="36dp"
+                                android:layout_below="@+id/textView16"
+                                android:layout_alignParentStart="true" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="Monto $C"
+                                android:id="@+id/textView18"
+                                android:layout_marginTop="33dp"
+                                android:layout_below="@+id/txtCuotaPres"
+                                android:layout_alignParentStart="true" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="Fecha"
+                                android:id="@+id/textView19"
+                                android:layout_below="@+id/txtMontoPres"
+                                android:layout_marginTop="78dp"
+                                android:layout_alignParentStart="true"/>
+
+                            <DatePicker
+                                android:layout_width="200dp"
+                                android:layout_height="100dp"
+                                android:id="@+id/dtFechaPres"
+                                android:layout_below="@+id/txtMontoPres"
+                                android:layout_marginTop="8dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignStart="@+id/txtMontoPres" />
+
+                            <ScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="93dp"
+                                android:id="@+id/scrollView"
+                                android:layout_below="@+id/dtFechaPres"
+                                android:layout_alignStart="@+id/dtFechaPres"
+                                android:layout_marginTop="10dp">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textMultiLine"
+                                    android:ems="10"
+                                    android:id="@+id/txtDescPres"
+                                    android:layout_alignTop="@+id/scrollView" />
+                            </ScrollView>
 
                             <EditText
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:inputType="textMultiLine"
+                                android:inputType="number"
                                 android:ems="10"
-                                android:id="@+id/txtDescPres"
-                                android:layout_alignTop="@+id/scrollView" />
-                        </ScrollView>
+                                android:id="@+id/txtCuotaPres"
+                                android:layout_alignTop="@+id/textView17"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignStart="@+id/txtAgentePres" />
 
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ingresar"
-                            android:id="@+id/btnIngPres"
-                            android:layout_below="@+id/scrollView"
-                            android:layout_centerHorizontal="true" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="Agente Financiero"
+                                android:id="@+id/textView16"
+                                android:layout_below="@+id/tvGastos"
+                                android:layout_alignParentStart="true" />
 
-                        <EditText
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:inputType="textPersonName"
-                            android:ems="10"
-                            android:id="@+id/txtAgentePres"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_toEndOf="@+id/textView16" />
+                            <TextView
+                                android:layout_width="261dp"
+                                android:layout_height="wrap_content"
+                                android:text="Prestamos"
+                                android:id="@+id/tvGastos"
+                                android:layout_gravity="center_horizontal"
+                                android:textAlignment="center"
+                                android:textSize="30dp"
+                                android:textColor="@color/accent_material_light"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentEnd="true" />
 
-                        <EditText
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:id="@+id/txtMontoPres"
-                            android:layout_below="@+id/txtCuotaPres"
-                            android:layout_alignStart="@+id/txtCuotaPres"
-                            android:layout_alignParentEnd="true" />
+                            <EditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:ems="10"
+                                android:id="@+id/txtAgentePres"
+                                android:layout_below="@+id/tvGastos"
+                                android:layout_alignParentEnd="true"
+                                android:layout_toEndOf="@+id/textView16" />
+
+                            <Button
+                                style="?android:attr/buttonStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ingresar"
+                                android:id="@+id/btnIngPres"
+                                android:layout_below="@+id/scrollView"
+                                android:layout_centerHorizontal="true" />
+
+                            <EditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:ems="10"
+                                android:id="@+id/txtMontoPres"
+                                android:layout_alignBottom="@+id/textView18"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignStart="@+id/txtCuotaPres" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="Descripcion:"
+                                android:id="@+id/textView21"
+                                android:layout_alignTop="@+id/scrollView"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginTop="35dp" />
 
 
-                    </RelativeLayout>
-                </LinearLayout>
+                        </RelativeLayout>
 
-                <!-- segundo linear-->
-                <LinearLayout android:id="@+id/tab2"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    </LinearLayout>
 
-                    <RelativeLayout
+                    <!-- segundo linear-->
+                    <LinearLayout android:id="@+id/tab2"
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent" >
 
-                        <TextView android:id="@+id/textView2"
-                            android:text="Consultar Prestamos"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:textSize="25dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-                        <Button
-                            android:text="Consultar"
-                            android:id="@+id/btnConsultarPrestamo"
-                            android:layout_height="55dp"
-                            android:layout_width="105dp"
-                            android:layout_below="@+id/textView2"
-                            android:layout_alignParentStart="true" />
-                        <Button
-                            android:text="reset"
-                            android:id="@+id/btnResetPrestamo"
-                            android:layout_height="55dp"
-                            android:layout_above="@+id/fragmentP"
-                            android:layout_toEndOf="@+id/btnConsultarPrestamo"
-                            android:layout_width="80dp" />
+                            <TextView android:id="@+id/textView2"
+                                android:text="Consultar Prestamos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:textSize="25dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true" />
 
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tvFechaPrestamo"
-                            android:textSize="18sp"
-                            android:layout_width="wrap_content"
-                            android:text="Buscar por"
-                            android:layout_alignBaseline="@+id/btnFechaPrestamo"
-                            android:layout_alignBottom="@+id/btnFechaPrestamo"
-                            android:layout_toStartOf="@+id/btnFechaPrestamo" />
+                            <Button
+                                android:text="Consultar"
+                                android:id="@+id/btnConsultarPrestamo"
+                                android:layout_height="55dp"
+                                android:layout_width="105dp"
+                                android:layout_below="@+id/textView2"
+                                android:layout_alignParentStart="true" />
+                            <Button
+                                android:text="reset"
+                                android:id="@+id/btnResetPrestamo"
+                                android:layout_height="55dp"
+                                android:layout_above="@+id/fragmentP"
+                                android:layout_toEndOf="@+id/btnConsultarPrestamo"
+                                android:layout_width="80dp" />
 
-                        <fragment
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:name="com.example.jaime.finnica.fragmentClasses.FragmentPrestamo"
-                            android:id="@+id/fragmentP"
-                            android:layout_below="@+id/btnConsultarPrestamo"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginTop="20dp"
-                            android:layout_alignParentBottom="true"
-                            android:layout_alignParentEnd="true"
-                            class="com.example.jaime.finnica.fragmentClasses.FragmentPrestamo"
-                            />
+                            <TextView
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tvFechaPrestamo"
+                                android:textSize="18sp"
+                                android:layout_width="wrap_content"
+                                android:text="Buscar por"
+                                android:layout_alignBaseline="@+id/btnFechaPrestamo"
+                                android:layout_alignBottom="@+id/btnFechaPrestamo"
+                                android:layout_toStartOf="@+id/btnFechaPrestamo" />
 
-                        <Button
-                            android:text="Fecha"
-                            android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:id="@+id/btnFechaPrestamo"
-                            android:textColor="?android:attr/colorEdgeEffect"
-                            android:backgroundTint="?attr/colorControlHighlight"
-                            android:layout_marginEnd="5dp"
-                            android:layout_alignBaseline="@+id/btnResetPrestamo"
-                            android:layout_alignBottom="@+id/btnResetPrestamo"
-                            android:layout_alignParentEnd="true" />
-                    </RelativeLayout>
+                            <fragment
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:name="com.example.jaime.finnica.fragmentClasses.FragmentPrestamo"
+                                android:id="@+id/fragmentP"
+                                android:layout_below="@+id/btnConsultarPrestamo"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginTop="20dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentEnd="true"
+                                class="com.example.jaime.finnica.fragmentClasses.FragmentPrestamo"
+                                />
 
-                </LinearLayout>
+                            <Button
+                                android:text="Fecha"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:id="@+id/btnFechaPrestamo"
+                                android:textColor="?android:attr/colorEdgeEffect"
+                                android:backgroundTint="?attr/colorControlHighlight"
+                                android:layout_marginEnd="5dp"
+                                android:layout_alignBaseline="@+id/btnResetPrestamo"
+                                android:layout_alignBottom="@+id/btnResetPrestamo"
+                                android:layout_alignParentEnd="true" />
+                        </RelativeLayout>
 
-            </FrameLayout>
-        </LinearLayout>
-    </TabHost>
-</LinearLayout>
+                    </LinearLayout>
 
-    </ScrollView>
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
+    </LinearLayout>
+</ScrollView>

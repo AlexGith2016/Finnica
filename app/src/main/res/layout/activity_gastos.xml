@@ -54,25 +54,12 @@
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentStart="true" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textAppearance="?android:attr/textAppearanceSmall"
-                                android:text="Descripcion"
-                                android:id="@+id/textView12"
-                                android:layout_marginTop="30dp"
-                                android:layout_below="@+id/tvGastos"
-                                android:layout_alignParentStart="true"
-                                android:textColor="#e93896"
-                                android:textSize="18dp" />
-
                             <ScrollView
                                 android:layout_width="match_parent"
                                 android:layout_height="93dp"
                                 android:id="@+id/scrollView"
                                 android:layout_below="@+id/textView12"
-                                android:layout_alignParentStart="true"
-                                android:layout_marginTop="29dp">
+                                android:layout_alignParentStart="true">
 
                                 <EditText
                                     android:layout_width="match_parent"
@@ -88,22 +75,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textAppearance="?android:attr/textAppearanceSmall"
-                                android:text="Deducción $C"
-                                android:id="@+id/textView13"
-                                android:layout_centerVertical="true"
-                                android:layout_alignParentStart="true"
+                                android:text="Descripcion"
+                                android:id="@+id/textView12"
+                                android:layout_marginTop="16dp"
                                 android:textColor="#e93896"
-                                android:textSize="18dp" />
-
-                            <EditText
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:inputType="numberDecimal"
-                                android:ems="10"
-                                android:id="@+id/txtDedGasto"
-                                android:layout_below="@+id/scrollView"
-                                android:layout_alignParentEnd="true"
-                                android:layout_toEndOf="@+id/textView13" />
+                                android:textSize="18dp"
+                                android:layout_below="@+id/tvGastos"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignEnd="@+id/textView13" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -113,18 +92,39 @@
                                 android:id="@+id/textView14"
                                 android:textColor="#e93896"
                                 android:textSize="18dp"
-                                android:layout_above="@+id/fechaGasto"
-                                android:layout_alignParentStart="true" />
+                                android:layout_alignTop="@+id/fechaGasto"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginTop="38dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="Deducción $C"
+                                android:id="@+id/textView13"
+                                android:textColor="#e93896"
+                                android:textSize="18dp"
+                                android:layout_centerVertical="true" />
+
+                            <EditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:ems="10"
+                                android:id="@+id/txtDedGasto"
+                                android:layout_below="@+id/scrollView"
+                                android:layout_alignParentEnd="true"
+                                android:layout_toEndOf="@+id/textView13"
+                                android:layout_marginTop="10dp"
+                                android:layout_alignStart="@+id/fechaGasto" />
 
                             <DatePicker
-                                android:layout_width="200dp"
-                                android:layout_height="100dp"
+                                android:layout_width="250dp"
+                                android:layout_height="120dp"
                                 android:id="@+id/fechaGasto"
-                                android:layout_above="@+id/btnIngresarGasto"
-                                android:layout_alignParentEnd="true"
-                                android:layout_alignStart="@+id/txtDedGasto"
-                                android:layout_marginTop="-20dp"
-                                android:layout_marginBottom="25dp" />
+                                android:layout_marginTop="13dp"
+                                android:layout_below="@+id/txtDedGasto"
+                                android:layout_alignParentEnd="true" />
 
                             <Button
                                 style="?android:attr/buttonStyleSmall"
@@ -133,8 +133,9 @@
                                 android:text="Ingresar"
                                 android:id="@+id/btnIngresarGasto"
                                 android:layout_gravity="center_horizontal"
-                                android:layout_alignParentBottom="true"
-                                android:layout_centerHorizontal="true" />
+                                android:layout_below="@+id/fechaGasto"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="23dp" />
 
                         </RelativeLayout>
                     </LinearLayout>
