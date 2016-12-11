@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView2" >
+
+
+<LinearLayout
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
     <TabHost android:id="@android:id/tabhost"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="639dp">
 
         <LinearLayout
             android:orientation="vertical"
@@ -83,10 +90,9 @@
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Descripción"
                             android:id="@+id/textView25"
+                            android:textSize="18dp"
                             android:layout_alignTop="@+id/scrollView"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginTop="32dp"
-                            android:textSize="18dp" />
+                            android:layout_alignParentStart="true" />
 
                         <ScrollView
                             android:layout_width="200dp"
@@ -101,9 +107,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/descIngreso"
-                                android:layout_alignBaseline="@+id/textView25"
                                 android:layout_alignBottom="@+id/textView25"
-                                android:layout_toEndOf="@+id/textView23" />
+                                android:layout_toEndOf="@+id/textView25" />
                         </ScrollView>
 
                         <TextView
@@ -243,4 +248,11 @@
             </FrameLayout>
 </LinearLayout>
     </TabHost>
+
+
+
+
+
 </LinearLayout>
+
+    </ScrollView>
