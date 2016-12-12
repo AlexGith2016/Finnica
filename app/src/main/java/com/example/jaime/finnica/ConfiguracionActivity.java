@@ -77,9 +77,7 @@ public class ConfiguracionActivity extends AppCompatActivity {
                     String contraantigua = ((EditText) findViewById(R.id.contraantigua)).getText().toString();
                     String contranueva1 = ((EditText) findViewById(R.id.contranueva1)).getText().toString();
                     String contranueva2 = ((EditText) findViewById(R.id.contranueva2)).getText().toString();
-                    Toast.makeText(getApplicationContext(), "contraseña antigua: " + contraantigua, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(), "contraseña 1: " + contranueva1, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(), "contraseña 2: " + contranueva2, Toast.LENGTH_SHORT).show();
+
                     if (contraantigua.equals(c.getContra()) && contranueva1.equals(contranueva2)) {
                         c.setContra(contranueva2);
                         c.save();
@@ -102,8 +100,7 @@ public class ConfiguracionActivity extends AppCompatActivity {
                     String contranueva1 = ((EditText) findViewById(R.id.contranueva1)).getText().toString();
                     String contranueva2 = ((EditText) findViewById(R.id.contranueva2)).getText().toString();
 
-                    Toast.makeText(getApplicationContext(), "contraseña 1: " + contranueva1, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(), "contraseña 2: " + contranueva2, Toast.LENGTH_SHORT).show();
+
 
                     if (contranueva1.equals(contranueva2)) {
                         c = new Conf(contranueva2);
