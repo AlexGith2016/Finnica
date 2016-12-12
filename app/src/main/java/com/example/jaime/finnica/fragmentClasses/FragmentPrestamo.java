@@ -93,8 +93,7 @@ public class FragmentPrestamo extends ListFragment {
         super.onAttach(context);
         actP = (InterfacePrestamo)context;
         actP.onFragmentInteractionListener();
-        Toast.makeText(getActivity(), "Creando activity para comunicacion",
-                Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

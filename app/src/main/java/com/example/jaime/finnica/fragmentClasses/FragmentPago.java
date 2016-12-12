@@ -118,8 +118,7 @@ public class FragmentPago extends ListFragment {
         super.onAttach(context);
         act = (InterfacePago)context;
         act.onFragmentInteractionListener();
-        Toast.makeText(getActivity(), "Creando activity para comunicacion",
-                Toast.LENGTH_SHORT).show();
+
     }
 
 
