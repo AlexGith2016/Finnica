@@ -68,7 +68,7 @@ public class FragmentPago extends ListFragment {
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                     selectedLong = true;
                     pos = position;
-                    Toast.makeText(getActivity(), "seleccion LONG", Toast.LENGTH_LONG).show();
+
                     view.setSelected(true);
                     System.out.println("exito LONG selected");
                     return false;

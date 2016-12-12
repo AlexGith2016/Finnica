@@ -60,7 +60,7 @@ public class FragmentPrestamo extends ListFragment {
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                     selectedLongP = true;
                     posP = position;
-                    Toast.makeText(getActivity(), "seleccion LONG", Toast.LENGTH_LONG).show();
+
                     view.setSelected(true);
                     System.out.println("exito LONG selected");
                     return false;

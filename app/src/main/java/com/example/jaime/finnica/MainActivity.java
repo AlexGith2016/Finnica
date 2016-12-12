@@ -38,11 +38,11 @@ public class MainActivity extends AppCompatActivity {
                 String auxi = aux.getText().toString();
 
                 if (auxi.equals(c.getContra())) {
-                    Toast.makeText(this, "la contra ingresada  es " + auxi.toString(), Toast.LENGTH_LONG).show();
+
                    // Toast.makeText(this, "la contra es " + c.getContra(), Toast.LENGTH_LONG).show();
                     startActivity(intent);
                 } else {
-                    Toast.makeText(this, "la contra ingresada es " + auxi.toString(), Toast.LENGTH_LONG).show();
+
                    // Toast.makeText(this, "la contra es " + c.getContra(), Toast.LENGTH_LONG).show();
                     Toast.makeText(this, "No puedes ingresar", Toast.LENGTH_LONG).show();
               //  }

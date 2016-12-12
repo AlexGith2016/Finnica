@@ -78,6 +78,7 @@ public class ConfiguracionActivity extends AppCompatActivity {
                     String contranueva1 = ((EditText) findViewById(R.id.contranueva1)).getText().toString();
                     String contranueva2 = ((EditText) findViewById(R.id.contranueva2)).getText().toString();
 
+
                     if (contraantigua.equals(c.getContra()) && contranueva1.equals(contranueva2)) {
                         c.setContra(contranueva2);
                         c.save();
